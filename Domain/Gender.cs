@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
-    public class Class1
+    public enum Gender
     {
+        Male, Female
     }
 }
