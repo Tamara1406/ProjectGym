@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClientCommunication.cs" />
+    <Compile Include="ClientController.cs" />
     <Compile Include="Forms\Client\FrmClientDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +179,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommunicationClasses\CommunicationClasses.csproj">
+      <Project>{44787B45-CA19-414C-9A56-97C136E1CBC6}</Project>
+      <Name>CommunicationClasses</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
