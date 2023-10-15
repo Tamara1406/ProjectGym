@@ -3,17 +3,15 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Domain
 {
-    public class Term : AbsEntity
+    public class Attendance : AbsEntity
     {
-        public int TermID { get; set; }
-        public DateTime Time { get; set; }
-        public int NumberOfTerms { get; set; }
-        public Group Group { get; set; }
+        public Client Client { get; set; }
+        public Appointment Appointment { get; set; }
+        public bool IsAttend { get; set; }
 
         public override string TableName => throw new NotImplementedException();
 
