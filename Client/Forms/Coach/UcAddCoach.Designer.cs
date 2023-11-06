@@ -45,6 +45,7 @@
             this.btnSave.TabIndex = 20;
             this.btnSave.Text = "Sacuvaj";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // cmbEducation
             // 

@@ -31,17 +31,17 @@
             this.pnlMain = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.treneriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.klijentiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.grupeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.terminiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiLogin = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiGetAllCoach = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiAddCoach = new System.Windows.Forms.ToolStripMenuItem();
+            this.klijentiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiGetAllClient = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiAddClient = new System.Windows.Forms.ToolStripMenuItem();
+            this.grupeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiGetAllGroup = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiAddGroup = new System.Windows.Forms.ToolStripMenuItem();
+            this.terminiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiGetAllAppointment = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiLogin = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,6 +76,20 @@
             this.treneriToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
             this.treneriToolStripMenuItem.Text = "Treneri";
             // 
+            // tsmiGetAllCoach
+            // 
+            this.tsmiGetAllCoach.Name = "tsmiGetAllCoach";
+            this.tsmiGetAllCoach.Size = new System.Drawing.Size(224, 26);
+            this.tsmiGetAllCoach.Text = "Prikaži trenere";
+            this.tsmiGetAllCoach.Click += new System.EventHandler(this.tsmiGetAllCoach_Click);
+            // 
+            // tsmiAddCoach
+            // 
+            this.tsmiAddCoach.Name = "tsmiAddCoach";
+            this.tsmiAddCoach.Size = new System.Drawing.Size(224, 26);
+            this.tsmiAddCoach.Text = "Dodaj trenera";
+            this.tsmiAddCoach.Click += new System.EventHandler(this.tsmiAddCoach_Click);
+            // 
             // klijentiToolStripMenuItem
             // 
             this.klijentiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -84,6 +98,18 @@
             this.klijentiToolStripMenuItem.Name = "klijentiToolStripMenuItem";
             this.klijentiToolStripMenuItem.Size = new System.Drawing.Size(69, 24);
             this.klijentiToolStripMenuItem.Text = "Klijenti";
+            // 
+            // tsmiGetAllClient
+            // 
+            this.tsmiGetAllClient.Name = "tsmiGetAllClient";
+            this.tsmiGetAllClient.Size = new System.Drawing.Size(187, 26);
+            this.tsmiGetAllClient.Text = "Prikaži klijente";
+            // 
+            // tsmiAddClient
+            // 
+            this.tsmiAddClient.Name = "tsmiAddClient";
+            this.tsmiAddClient.Size = new System.Drawing.Size(187, 26);
+            this.tsmiAddClient.Text = "Dodaj klijenta";
             // 
             // grupeToolStripMenuItem
             // 
@@ -94,6 +120,18 @@
             this.grupeToolStripMenuItem.Size = new System.Drawing.Size(63, 24);
             this.grupeToolStripMenuItem.Text = "Grupe";
             // 
+            // tsmiGetAllGroup
+            // 
+            this.tsmiGetAllGroup.Name = "tsmiGetAllGroup";
+            this.tsmiGetAllGroup.Size = new System.Drawing.Size(178, 26);
+            this.tsmiGetAllGroup.Text = "Prikaži grupe";
+            // 
+            // tsmiAddGroup
+            // 
+            this.tsmiAddGroup.Name = "tsmiAddGroup";
+            this.tsmiAddGroup.Size = new System.Drawing.Size(178, 26);
+            this.tsmiAddGroup.Text = "Dodaj grupu";
+            // 
             // terminiToolStripMenuItem
             // 
             this.terminiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -102,53 +140,17 @@
             this.terminiToolStripMenuItem.Size = new System.Drawing.Size(72, 24);
             this.terminiToolStripMenuItem.Text = "Termini";
             // 
+            // tsmiGetAllAppointment
+            // 
+            this.tsmiGetAllAppointment.Name = "tsmiGetAllAppointment";
+            this.tsmiGetAllAppointment.Size = new System.Drawing.Size(190, 26);
+            this.tsmiGetAllAppointment.Text = "Tabela termina";
+            // 
             // tsmiLogin
             // 
             this.tsmiLogin.Name = "tsmiLogin";
             this.tsmiLogin.Size = new System.Drawing.Size(67, 24);
             this.tsmiLogin.Text = "Prijava";
-            // 
-            // tsmiGetAllCoach
-            // 
-            this.tsmiGetAllCoach.Name = "tsmiGetAllCoach";
-            this.tsmiGetAllCoach.Size = new System.Drawing.Size(224, 26);
-            this.tsmiGetAllCoach.Text = "Prikaži trenere";
-            // 
-            // tsmiAddCoach
-            // 
-            this.tsmiAddCoach.Name = "tsmiAddCoach";
-            this.tsmiAddCoach.Size = new System.Drawing.Size(224, 26);
-            this.tsmiAddCoach.Text = "Dodaj trenera";
-            // 
-            // tsmiGetAllClient
-            // 
-            this.tsmiGetAllClient.Name = "tsmiGetAllClient";
-            this.tsmiGetAllClient.Size = new System.Drawing.Size(224, 26);
-            this.tsmiGetAllClient.Text = "Prikaži klijente";
-            // 
-            // tsmiAddClient
-            // 
-            this.tsmiAddClient.Name = "tsmiAddClient";
-            this.tsmiAddClient.Size = new System.Drawing.Size(224, 26);
-            this.tsmiAddClient.Text = "Dodaj klijenta";
-            // 
-            // tsmiGetAllGroup
-            // 
-            this.tsmiGetAllGroup.Name = "tsmiGetAllGroup";
-            this.tsmiGetAllGroup.Size = new System.Drawing.Size(224, 26);
-            this.tsmiGetAllGroup.Text = "Prikaži grupe";
-            // 
-            // tsmiAddGroup
-            // 
-            this.tsmiAddGroup.Name = "tsmiAddGroup";
-            this.tsmiAddGroup.Size = new System.Drawing.Size(224, 26);
-            this.tsmiAddGroup.Text = "Dodaj grupu";
-            // 
-            // tsmiGetAllAppointment
-            // 
-            this.tsmiGetAllAppointment.Name = "tsmiGetAllAppointment";
-            this.tsmiGetAllAppointment.Size = new System.Drawing.Size(224, 26);
-            this.tsmiGetAllAppointment.Text = "Tabela termina";
             // 
             // FrmMain
             // 

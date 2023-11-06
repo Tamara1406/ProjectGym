@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnAddCoach = new System.Windows.Forms.Button();
             this.txtName = new System.Windows.Forms.TextBox();
             this.btnDetails = new System.Windows.Forms.Button();
             this.btnEducation = new System.Windows.Forms.Button();
@@ -39,15 +38,6 @@
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGetAllCoach)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnAddCoach
-            // 
-            this.btnAddCoach.Location = new System.Drawing.Point(587, 466);
-            this.btnAddCoach.Name = "btnAddCoach";
-            this.btnAddCoach.Size = new System.Drawing.Size(120, 38);
-            this.btnAddCoach.TabIndex = 26;
-            this.btnAddCoach.Text = "Kreiraj trenera";
-            this.btnAddCoach.UseVisualStyleBackColor = true;
             // 
             // txtName
             // 
@@ -64,6 +54,7 @@
             this.btnDetails.TabIndex = 24;
             this.btnDetails.Text = "Detalji";
             this.btnDetails.UseVisualStyleBackColor = true;
+            this.btnDetails.Click += new System.EventHandler(this.btnDetails_Click);
             // 
             // btnEducation
             // 
@@ -73,6 +64,7 @@
             this.btnEducation.TabIndex = 23;
             this.btnEducation.Text = "Prikazi trenere";
             this.btnEducation.UseVisualStyleBackColor = true;
+            this.btnEducation.Click += new System.EventHandler(this.btnEducation_Click);
             // 
             // cmbEducation
             // 
@@ -112,6 +104,7 @@
             this.btnName.TabIndex = 19;
             this.btnName.Text = "Nadji trenera";
             this.btnName.UseVisualStyleBackColor = true;
+            this.btnName.Click += new System.EventHandler(this.btnName_Click);
             // 
             // label1
             // 
@@ -126,7 +119,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnAddCoach);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.btnDetails);
             this.Controls.Add(this.btnEducation);
@@ -136,7 +128,7 @@
             this.Controls.Add(this.btnName);
             this.Controls.Add(this.label1);
             this.Name = "UcGetAllCoach";
-            this.Size = new System.Drawing.Size(742, 545);
+            this.Size = new System.Drawing.Size(742, 505);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGetAllCoach)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -144,8 +136,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnAddCoach;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Button btnDetails;
         private System.Windows.Forms.Button btnEducation;

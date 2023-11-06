@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnAddClient = new System.Windows.Forms.Button();
             this.btnDetailsClient = new System.Windows.Forms.Button();
             this.dgvGetAllClients = new System.Windows.Forms.DataGridView();
             this.btnSearchGroup = new System.Windows.Forms.Button();
@@ -40,15 +39,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvGetAllClients)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnAddClient
-            // 
-            this.btnAddClient.Location = new System.Drawing.Point(584, 476);
-            this.btnAddClient.Name = "btnAddClient";
-            this.btnAddClient.Size = new System.Drawing.Size(137, 35);
-            this.btnAddClient.TabIndex = 17;
-            this.btnAddClient.Text = "Kreiraj klijenta";
-            this.btnAddClient.UseVisualStyleBackColor = true;
-            // 
             // btnDetailsClient
             // 
             this.btnDetailsClient.Location = new System.Drawing.Point(584, 425);
@@ -57,6 +47,7 @@
             this.btnDetailsClient.TabIndex = 16;
             this.btnDetailsClient.Text = "Detalji";
             this.btnDetailsClient.UseVisualStyleBackColor = true;
+            this.btnDetailsClient.Click += new System.EventHandler(this.btnDetailsClient_Click);
             // 
             // dgvGetAllClients
             // 
@@ -79,6 +70,7 @@
             this.btnSearchGroup.TabIndex = 14;
             this.btnSearchGroup.Text = "Prikazi grupu";
             this.btnSearchGroup.UseVisualStyleBackColor = true;
+            this.btnSearchGroup.Click += new System.EventHandler(this.btnSearchGroup_Click);
             // 
             // btnSearchName
             // 
@@ -88,6 +80,7 @@
             this.btnSearchName.TabIndex = 13;
             this.btnSearchName.Text = "Nadji klijenta";
             this.btnSearchName.UseVisualStyleBackColor = true;
+            this.btnSearchName.Click += new System.EventHandler(this.btnSearchName_Click);
             // 
             // cmbGroup
             // 
@@ -126,7 +119,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnAddClient);
             this.Controls.Add(this.btnDetailsClient);
             this.Controls.Add(this.dgvGetAllClients);
             this.Controls.Add(this.btnSearchGroup);
@@ -144,8 +136,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnAddClient;
         private System.Windows.Forms.Button btnDetailsClient;
         private System.Windows.Forms.DataGridView dgvGetAllClients;
         private System.Windows.Forms.Button btnSearchGroup;

@@ -52,6 +52,7 @@
             this.btnSave.TabIndex = 23;
             this.btnSave.Text = "Sačuvaj";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // lblRegister
             // 

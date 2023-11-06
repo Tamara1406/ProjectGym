@@ -46,6 +46,7 @@
             this.btnDeleteCoach.TabIndex = 15;
             this.btnDeleteCoach.Text = "Obrisi trenera";
             this.btnDeleteCoach.UseVisualStyleBackColor = true;
+            this.btnDeleteCoach.Click += new System.EventHandler(this.btnDeleteCoach_Click);
             // 
             // btnSave
             // 
@@ -55,6 +56,7 @@
             this.btnSave.TabIndex = 14;
             this.btnSave.Text = "Sacuvaj izmene";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // cmbEducation
             // 
@@ -68,7 +70,6 @@
             // 
             this.txtLastName.Location = new System.Drawing.Point(199, 129);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.ReadOnly = true;
             this.txtLastName.Size = new System.Drawing.Size(154, 22);
             this.txtLastName.TabIndex = 12;
             // 
@@ -76,7 +77,6 @@
             // 
             this.txtFirstName.Location = new System.Drawing.Point(199, 67);
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.ReadOnly = true;
             this.txtFirstName.Size = new System.Drawing.Size(154, 22);
             this.txtFirstName.TabIndex = 11;
             // 
