@@ -41,16 +41,18 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(320, 48);
+            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.Location = new System.Drawing.Point(398, 45);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(172, 22);
+            this.txtName.Size = new System.Drawing.Size(172, 28);
             this.txtName.TabIndex = 25;
             // 
             // btnDetails
             // 
-            this.btnDetails.Location = new System.Drawing.Point(587, 409);
+            this.btnDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDetails.Location = new System.Drawing.Point(570, 409);
             this.btnDetails.Name = "btnDetails";
-            this.btnDetails.Size = new System.Drawing.Size(120, 38);
+            this.btnDetails.Size = new System.Drawing.Size(137, 37);
             this.btnDetails.TabIndex = 24;
             this.btnDetails.Text = "Detalji";
             this.btnDetails.UseVisualStyleBackColor = true;
@@ -58,9 +60,10 @@
             // 
             // btnEducation
             // 
-            this.btnEducation.Location = new System.Drawing.Point(520, 90);
+            this.btnEducation.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEducation.Location = new System.Drawing.Point(584, 86);
             this.btnEducation.Name = "btnEducation";
-            this.btnEducation.Size = new System.Drawing.Size(110, 29);
+            this.btnEducation.Size = new System.Drawing.Size(123, 34);
             this.btnEducation.TabIndex = 23;
             this.btnEducation.Text = "Prikazi trenere";
             this.btnEducation.UseVisualStyleBackColor = true;
@@ -68,18 +71,20 @@
             // 
             // cmbEducation
             // 
+            this.cmbEducation.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbEducation.FormattingEnabled = true;
-            this.cmbEducation.Location = new System.Drawing.Point(320, 93);
+            this.cmbEducation.Location = new System.Drawing.Point(398, 90);
             this.cmbEducation.Name = "cmbEducation";
-            this.cmbEducation.Size = new System.Drawing.Size(172, 24);
+            this.cmbEducation.Size = new System.Drawing.Size(172, 30);
             this.cmbEducation.TabIndex = 22;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(62, 92);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(29, 93);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(219, 16);
+            this.label2.Size = new System.Drawing.Size(309, 24);
             this.label2.TabIndex = 21;
             this.label2.Text = "Pretrazi trenere prema obrazovanju:";
             // 
@@ -98,9 +103,10 @@
             // 
             // btnName
             // 
-            this.btnName.Location = new System.Drawing.Point(520, 44);
+            this.btnName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnName.Location = new System.Drawing.Point(584, 42);
             this.btnName.Name = "btnName";
-            this.btnName.Size = new System.Drawing.Size(110, 29);
+            this.btnName.Size = new System.Drawing.Size(123, 34);
             this.btnName.TabIndex = 19;
             this.btnName.Text = "Nadji trenera";
             this.btnName.UseVisualStyleBackColor = true;
@@ -109,9 +115,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(62, 51);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(29, 48);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(252, 16);
+            this.label1.Size = new System.Drawing.Size(363, 24);
             this.label1.TabIndex = 18;
             this.label1.Text = "Pretrazi trenere prema imenu i prezimenu:";
             // 

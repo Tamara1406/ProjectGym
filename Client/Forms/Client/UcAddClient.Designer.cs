@@ -48,27 +48,31 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(249, 399);
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Location = new System.Drawing.Point(215, 391);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(102, 32);
+            this.btnSave.Size = new System.Drawing.Size(136, 44);
             this.btnSave.TabIndex = 40;
             this.btnSave.Text = "Sacuvaj";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // cmbGroup
             // 
+            this.cmbGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbGroup.FormattingEnabled = true;
             this.cmbGroup.Location = new System.Drawing.Point(217, 323);
             this.cmbGroup.Name = "cmbGroup";
-            this.cmbGroup.Size = new System.Drawing.Size(121, 24);
+            this.cmbGroup.Size = new System.Drawing.Size(121, 30);
             this.cmbGroup.TabIndex = 39;
             // 
             // rdoFemale
             // 
             this.rdoFemale.AutoSize = true;
+            this.rdoFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdoFemale.Location = new System.Drawing.Point(278, 170);
             this.rdoFemale.Name = "rdoFemale";
-            this.rdoFemale.Size = new System.Drawing.Size(36, 20);
+            this.rdoFemale.Size = new System.Drawing.Size(43, 28);
             this.rdoFemale.TabIndex = 38;
             this.rdoFemale.TabStop = true;
             this.rdoFemale.Text = "Ž";
@@ -77,9 +81,10 @@
             // rdoMale
             // 
             this.rdoMale.AutoSize = true;
+            this.rdoMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdoMale.Location = new System.Drawing.Point(217, 170);
             this.rdoMale.Name = "rdoMale";
-            this.rdoMale.Size = new System.Drawing.Size(39, 20);
+            this.rdoMale.Size = new System.Drawing.Size(47, 28);
             this.rdoMale.TabIndex = 37;
             this.rdoMale.TabStop = true;
             this.rdoMale.Text = "M";
@@ -105,87 +110,97 @@
             // 
             // txtLastName
             // 
+            this.txtLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLastName.Location = new System.Drawing.Point(217, 114);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(134, 22);
+            this.txtLastName.Size = new System.Drawing.Size(134, 28);
             this.txtLastName.TabIndex = 34;
             // 
             // txtHeight
             // 
+            this.txtHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHeight.Location = new System.Drawing.Point(217, 223);
             this.txtHeight.Name = "txtHeight";
-            this.txtHeight.Size = new System.Drawing.Size(100, 22);
+            this.txtHeight.Size = new System.Drawing.Size(100, 28);
             this.txtHeight.TabIndex = 33;
             // 
             // txtWeight
             // 
+            this.txtWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtWeight.Location = new System.Drawing.Point(217, 273);
             this.txtWeight.Name = "txtWeight";
-            this.txtWeight.Size = new System.Drawing.Size(100, 22);
+            this.txtWeight.Size = new System.Drawing.Size(100, 28);
             this.txtWeight.TabIndex = 32;
             // 
             // txtFirstName
             // 
+            this.txtFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFirstName.Location = new System.Drawing.Point(217, 61);
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(134, 22);
+            this.txtFirstName.Size = new System.Drawing.Size(134, 28);
             this.txtFirstName.TabIndex = 31;
             // 
             // lblGroup
             // 
             this.lblGroup.AutoSize = true;
-            this.lblGroup.Location = new System.Drawing.Point(91, 329);
+            this.lblGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGroup.Location = new System.Drawing.Point(73, 323);
             this.lblGroup.Name = "lblGroup";
-            this.lblGroup.Size = new System.Drawing.Size(96, 16);
+            this.lblGroup.Size = new System.Drawing.Size(138, 24);
             this.lblGroup.TabIndex = 30;
             this.lblGroup.Text = "Odaberi grupu:";
             // 
             // lblWeight
             // 
             this.lblWeight.AutoSize = true;
-            this.lblWeight.Location = new System.Drawing.Point(91, 276);
+            this.lblWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWeight.Location = new System.Drawing.Point(72, 273);
             this.lblWeight.Name = "lblWeight";
-            this.lblWeight.Size = new System.Drawing.Size(82, 16);
+            this.lblWeight.Size = new System.Drawing.Size(115, 24);
             this.lblWeight.TabIndex = 29;
             this.lblWeight.Text = "Unesi kilazu:";
             // 
             // lblHeight
             // 
             this.lblHeight.AutoSize = true;
-            this.lblHeight.Location = new System.Drawing.Point(91, 226);
+            this.lblHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeight.Location = new System.Drawing.Point(72, 223);
             this.lblHeight.Name = "lblHeight";
-            this.lblHeight.Size = new System.Drawing.Size(82, 16);
+            this.lblHeight.Size = new System.Drawing.Size(116, 24);
             this.lblHeight.TabIndex = 28;
             this.lblHeight.Text = "Unesi visinu:";
             // 
             // lblGender
             // 
             this.lblGender.AutoSize = true;
-            this.lblGender.Location = new System.Drawing.Point(91, 172);
+            this.lblGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGender.Location = new System.Drawing.Point(72, 170);
             this.lblGender.Name = "lblGender";
-            this.lblGender.Size = new System.Drawing.Size(73, 16);
+            this.lblGender.Size = new System.Drawing.Size(105, 24);
             this.lblGender.TabIndex = 27;
             this.lblGender.Text = "Oznaci pol:";
             // 
             // lblLastName
             // 
             this.lblLastName.AutoSize = true;
-            this.lblLastName.Location = new System.Drawing.Point(91, 117);
+            this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLastName.Location = new System.Drawing.Point(72, 117);
             this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(96, 16);
+            this.lblLastName.Size = new System.Drawing.Size(136, 24);
             this.lblLastName.TabIndex = 26;
             this.lblLastName.Text = "Unesi prezime:";
             // 
             // lblFirstName
             // 
             this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Location = new System.Drawing.Point(91, 67);
+            this.lblFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFirstName.Location = new System.Drawing.Point(72, 65);
             this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(70, 16);
+            this.lblFirstName.Size = new System.Drawing.Size(99, 24);
             this.lblFirstName.TabIndex = 25;
             this.lblFirstName.Text = "Unesi ime:";
             // 
-            // UcCreateClient
+            // UcAddClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -205,7 +220,7 @@
             this.Controls.Add(this.lblGender);
             this.Controls.Add(this.lblLastName);
             this.Controls.Add(this.lblFirstName);
-            this.Name = "UcCreateClient";
+            this.Name = "UcAddClient";
             this.Size = new System.Drawing.Size(443, 492);
             this.ResumeLayout(false);
             this.PerformLayout();

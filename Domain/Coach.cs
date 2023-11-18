@@ -1,16 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Domain
 {
+    [Serializable]
     public class Coach : AbsEntity
     {
+        [Browsable(false)]
         public int CoachID { get; set; }
+        [Browsable(false)]
         public string FirstName { get; set; }
+        [Browsable(false)]
         public string LastName { get; set; }
 
         public string Name
@@ -19,7 +25,13 @@ namespace Domain
         }
         public Education Education { get; set; }
 
-        public override string TableName => throw new NotImplementedException();
+        public override string ToString()
+        {
+            return Name;
+        }
+
+        [Browsable(false)]
+        public override string TableName => " Coach ";
 
         public override string CheckAttribute(AbsEntity entity)
         {
@@ -28,17 +40,40 @@ namespace Domain
 
         public override string CheckId(int key)
         {
-            throw new NotImplementedException();
+            return $" Coach.CoachID = {key} ";
         }
 
         public override string JoinKeys()
         {
-            throw new NotImplementedException();
+            return " join Education on Education.EducationID = Coach.Education ";
         }
 
         public override List<AbsEntity> ReaderRead(SqlDataReader reader)
         {
-            throw new NotImplementedException();
+            List<Coach> coaches = new List<Coach>();
+
+            while (reader.Read())
+            {
+
+                Education education = new Education
+                {
+                    EducationID = (int)reader[4],
+                    Qualifications = reader[5].ToString(),
+                };
+
+
+                Coach coach = new Coach
+                {
+                    CoachID = (int)reader[0],
+                    FirstName = reader[1].ToString(),
+                    LastName = reader[2].ToString(),
+                    Education = education,
+                };
+
+                coaches.Add(coach);
+            }
+
+            return coaches.ConvertAll(x => (AbsEntity)x);
         }
 
         public override string Search(string criteria)
@@ -48,12 +83,16 @@ namespace Domain
 
         public override string ValuesToInsert(AbsEntity entity)
         {
-            throw new NotImplementedException();
+            Coach coach = (Coach)entity;
+
+            return $" '{coach.FirstName}', '{coach.LastName}', '{coach.Education.EducationID}' ";
+
         }
 
         public override string ValuesToSet(AbsEntity entity)
         {
-            throw new NotImplementedException();
+            Coach coach = (Coach)entity;
+            return $" FirstName = '{coach.FirstName}', LastName = '{coach.LastName}', Education = '{coach.Education.EducationID}'";
         }
     }
 }

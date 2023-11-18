@@ -41,17 +41,36 @@ namespace Client.Forms
             dgvGetAllClients.ClearSelection();
             if (dgvGetAllClients.RowCount == 0)
             {
-                MessageBox.Show("Ne postoji klijent sa tim imenom!");
+                MessageBox.Show("Ne postoji klijent sa tim imenom! \n Sistem ne može da nadje klijente po zadatoj vrednosti.");
+                txtName.Text = "";
+                return;
             }
+            MessageBox.Show("Sistem je našao klijente po zadatoj vrednosti!");
             txtName.Text = "";
         }
 
         private void btnSearchGroup_Click(object sender, EventArgs e)
         {
-            Group group = (Group)cmbGroup.SelectedItem;
-            cmbGroup.SelectedIndex = -1;
-            dgvGetAllClients.DataSource = null;
-            dgvGetAllClients.DataSource = ClientController.Instance.GetAllClientsByGroup(group);
+            try
+            {
+                Group group = (Group)cmbGroup.SelectedItem;
+                cmbGroup.SelectedIndex = -1;
+                dgvGetAllClients.DataSource = null;
+                if(group != null)
+                {
+                    dgvGetAllClients.DataSource = ClientController.Instance.GetAllClientsByGroup(group);
+                    MessageBox.Show("Sistem je našao klijente po zadatoj vrednosti!");
+                } else
+                {
+                    MessageBox.Show("Sistem ne može da nadje klijente po zadatoj vrednosti.");
+                }
+                
+            }
+            catch
+            {
+                MessageBox.Show("Sistem ne može da nadje klijente po zadatoj vrednosti.");
+            }
+            
         }
 
         private void btnDetailsClient_Click(object sender, EventArgs e)
@@ -65,7 +84,7 @@ namespace Client.Forms
             }
             catch
             {
-                MessageBox.Show("Morate označiti ceo red!");
+                MessageBox.Show("Morate označiti ceo red!\nSistem ne može da učita klijenta!");
             }
 
         }

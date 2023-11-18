@@ -34,23 +34,48 @@ namespace Client.Forms.Coach
 
         private void btnName_Click(object sender, EventArgs e)
         {
-            string searchStr = txtName.Text;
-            dgvGetAllCoach.DataSource = null;
-            dgvGetAllCoach.DataSource = ClientController.Instance.GetCoachSearchedByName(searchStr);
-            dgvGetAllCoach.ClearSelection();
-            if (dgvGetAllCoach.RowCount == 0)
+            try
             {
-                MessageBox.Show("Ne postoji trener sa tim imenom!");
+                string searchStr = txtName.Text;
+                dgvGetAllCoach.DataSource = null;
+                dgvGetAllCoach.DataSource = ClientController.Instance.GetCoachSearchedByName(searchStr);
+                dgvGetAllCoach.ClearSelection();
+                if (dgvGetAllCoach.RowCount == 0)
+                {
+                    MessageBox.Show("Ne postoji trener sa tim imenom!\nSistem ne može da nađe trenere po zadatoj vrednosti!");
+                    txtName.Text = "";
+                    return;
+                }
+                MessageBox.Show("Sistem je našao trenere po zadatoj vrednosti!");
+                txtName.Text = "";
             }
-            txtName.Text = "";
+            catch
+            {
+                MessageBox.Show("Sistem ne može da nađe trenere po zadatoj vrednosti!");
+            }
+            
         }
 
         private void btnEducation_Click(object sender, EventArgs e)
         {
-            Education education = (Education) cmbEducation.SelectedItem;
-            cmbEducation.SelectedIndex = -1;
-            dgvGetAllCoach.DataSource = null;
-            dgvGetAllCoach.DataSource = ClientController.Instance.GetAllCoachByEducation(education);
+            try
+            {
+                Education education = (Education)cmbEducation.SelectedItem;
+                if (cmbEducation.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Sistem ne može da nađe trenere po zadatoj vrednosti!");
+                    return;
+                }
+                cmbEducation.SelectedIndex = -1;
+                dgvGetAllCoach.DataSource = null;
+                dgvGetAllCoach.DataSource = ClientController.Instance.GetAllCoachByEducation(education);
+                MessageBox.Show("Sistem je našao trenere po zadatoj vrednosti!");
+            }
+            catch
+            {
+                MessageBox.Show("Sistem ne može da nađe trenere po zadatoj vrednosti!");
+            }
+            
         }
 
         private void btnDetails_Click(object sender, EventArgs e)
@@ -64,7 +89,7 @@ namespace Client.Forms.Coach
             } 
             catch
             {
-                MessageBox.Show("Morate označiti ceo red!");
+                MessageBox.Show("Morate označiti ceo red!\nSIstem ne može da učita trenera!");
             }
             
 

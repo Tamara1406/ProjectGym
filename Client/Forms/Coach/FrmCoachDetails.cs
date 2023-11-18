@@ -16,9 +16,17 @@ namespace Client.Forms.Coach
         Domain.Coach coach;
         public FrmCoachDetails(Domain.Coach coach)
         {
-            InitializeComponent();
-            this.coach = coach;
-            FillFields();
+            try
+            {
+                InitializeComponent();
+                this.coach = coach;
+                FillFields();
+                MessageBox.Show("Sistem je učitao trenera!");
+            }
+            catch
+            {
+                MessageBox.Show("Sistem ne može da učita trenera!");
+            }
         }
 
 
@@ -27,26 +35,33 @@ namespace Client.Forms.Coach
             txtFirstName.Text = coach.FirstName;
             txtLastName.Text = coach.LastName;
             cmbEducation.DataSource = ClientController.Instance.GetAllEducations();
-            cmbEducation.SelectedIndex = coach.Education.EducationID - 1;
+            cmbEducation.Text = coach.Education.Qualifications;
         }
 
         private void btnDeleteCoach_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show($"Obriši trenera {coach.Name}?", "CONFIRMATION", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            List<Group> groups = ClientController.Instance.GetAllGroups();
-            if (result == DialogResult.Yes)
+            try
             {
-                foreach(Group group in groups)
+                DialogResult result = MessageBox.Show($"Obriši trenera {coach.Name}?", "CONFIRMATION", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                List<Group> groups = ClientController.Instance.GetAllGroups();
+                if (result == DialogResult.Yes)
                 {
-                    if(group.Coach.CoachID == coach.CoachID)
+                    foreach (Group group in groups)
                     {
-                        MessageBox.Show("Nije moguće obrisati trenera koji ima grupu vežbača!");
-                        return;
+                        if (group.Coach.CoachID == coach.CoachID)
+                        {
+                            MessageBox.Show("Sistem ne može da obriše trenera!\nNije moguće obrisati trenera koji ima grupu vežbača!");
+                            return;
+                        }
                     }
+                    ClientController.Instance.DeleteCoach(coach);
+                    this.Close();
+                    MessageBox.Show("Sistem je obrisao trenera!");
                 }
-                ClientController.Instance.DeleteCoach(coach);
-                this.Close();
-                MessageBox.Show("Trener je obrisan!");
+            }
+            catch
+            {
+                MessageBox.Show("Sistem ne može da obriše trenera!");
             }
             
             
@@ -56,20 +71,33 @@ namespace Client.Forms.Coach
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            coach.FirstName = txtFirstName.Text;
-            coach.LastName = txtLastName.Text;
-            coach.Education = (Education) cmbEducation.SelectedItem;
+            try
+            {
+                if (txtFirstName.Text == "" || txtLastName.Text == "" || cmbEducation.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Morate popuniti sva polja!\nSistem ne može da zapamti trenera!");
+                    return;
+                }
+                coach.FirstName = txtFirstName.Text;
+                coach.LastName = txtLastName.Text;
+                coach.Education = (Education)cmbEducation.SelectedItem;
 
 
-            if (ClientController.Instance.UpdateCoach(coach))
-            {
-                MessageBox.Show("Sačuvane su izmene na treneru!");
-                this.Close();
+                if (ClientController.Instance.UpdateCoach(coach))
+                {
+                    MessageBox.Show("Sistem je zapamtio trenera!");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Sistem ne može da zapamti trenera!");
+                }
             }
-            else
+            catch
             {
-                MessageBox.Show("Nije moguće sačuvati izmene!");
+                MessageBox.Show("Sistem ne može da zapamti trenera!");
             }
+            
         }
     }
 }

@@ -39,9 +39,10 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(247, 292);
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Location = new System.Drawing.Point(201, 286);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(120, 37);
+            this.btnSave.Size = new System.Drawing.Size(160, 45);
             this.btnSave.TabIndex = 20;
             this.btnSave.Text = "Sacuvaj";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -49,50 +50,56 @@
             // 
             // cmbEducation
             // 
+            this.cmbEducation.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbEducation.FormattingEnabled = true;
-            this.cmbEducation.Location = new System.Drawing.Point(228, 205);
+            this.cmbEducation.Location = new System.Drawing.Point(241, 208);
             this.cmbEducation.Name = "cmbEducation";
-            this.cmbEducation.Size = new System.Drawing.Size(139, 24);
+            this.cmbEducation.Size = new System.Drawing.Size(139, 30);
             this.cmbEducation.TabIndex = 19;
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(228, 143);
+            this.txtLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLastName.Location = new System.Drawing.Point(241, 147);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(139, 22);
+            this.txtLastName.Size = new System.Drawing.Size(139, 28);
             this.txtLastName.TabIndex = 18;
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(228, 83);
+            this.txtFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFirstName.Location = new System.Drawing.Point(241, 87);
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(139, 22);
+            this.txtFirstName.Size = new System.Drawing.Size(139, 28);
             this.txtFirstName.TabIndex = 17;
             // 
             // lblEducation
             // 
             this.lblEducation.AutoSize = true;
+            this.lblEducation.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEducation.Location = new System.Drawing.Point(53, 214);
             this.lblEducation.Name = "lblEducation";
-            this.lblEducation.Size = new System.Drawing.Size(131, 16);
+            this.lblEducation.Size = new System.Drawing.Size(182, 24);
             this.lblEducation.TabIndex = 16;
             this.lblEducation.Text = "Stepen obrazovanja:";
             // 
             // lblLastName
             // 
             this.lblLastName.AutoSize = true;
+            this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLastName.Location = new System.Drawing.Point(53, 150);
             this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(96, 16);
+            this.lblLastName.Size = new System.Drawing.Size(136, 24);
             this.lblLastName.TabIndex = 15;
             this.lblLastName.Text = "Unesi prezime:";
             // 
             // lblFirstName
             // 
             this.lblFirstName.AutoSize = true;
+            this.lblFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFirstName.Location = new System.Drawing.Point(53, 90);
             this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(70, 16);
+            this.lblFirstName.Size = new System.Drawing.Size(99, 24);
             this.lblFirstName.TabIndex = 14;
             this.lblFirstName.Text = "Unesi ime:";
             // 
@@ -108,7 +115,7 @@
             this.Controls.Add(this.lblLastName);
             this.Controls.Add(this.lblFirstName);
             this.Name = "UcAddCoach";
-            this.Size = new System.Drawing.Size(422, 452);
+            this.Size = new System.Drawing.Size(448, 452);
             this.ResumeLayout(false);
             this.PerformLayout();
 

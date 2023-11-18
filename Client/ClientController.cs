@@ -209,9 +209,9 @@ namespace Client
             Communication.SendRequest(request);
 
             Package response = Communication.RecieveResponse();
-            List<Group> groupd = response.ItemList.ConvertAll(x => (Group)x);
+            List<Group> group = response.ItemList.ConvertAll(x => (Group)x);
 
-            return groupd;
+            return group;
         }
 
         internal bool UpdateCoach(Coach coach)
@@ -289,6 +289,217 @@ namespace Client
             return finalClients;
         }
 
+        internal List<Domain.Client> GetAllClientsByGroup(Group group)
+        {
+            Package request = new Package
+            {
+                Operation = Operation.GetAllClients,
+            };
+
+            Communication.SendRequest(request);
+
+            Package response = Communication.RecieveResponse();
+
+            List<Domain.Client> clients = response.ItemList.ConvertAll(x => (Domain.Client)x);
+
+            List<Domain.Client> clientsByGroup = new List<Domain.Client>();
+
+            foreach (Domain.Client client in clients)
+            {
+                if (client.Group.GroupID == group.GroupID)
+                {
+                    clientsByGroup.Add(client);
+                }
+            }
+
+            return clientsByGroup;
+        }
+
+        internal void DeleteClient(Domain.Client client)
+        {
+            Package request = new Package
+            {
+                Item = client,
+                Operation = Operation.DeleteClient
+            };
+
+            Communication.SendRequest(request);
+
+            Package response = Communication.RecieveResponse();
+        }
+
+        internal bool UpdateClient(Domain.Client client)
+        {
+            Package package = new Package
+            {
+                Operation = Operation.UpdateClient,
+                Item = client
+            };
+
+            Communication.SendRequest(package);
+
+            Package response = Communication.RecieveResponse();
+
+            if (response.Operation == Operation.UpdateClientOk)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        internal bool CreateClient(Domain.Client client)
+        {
+            Package request = new Package
+            {
+                Operation = Operation.AddClient,
+                Item = client
+            };
+
+            Communication.SendRequest(request);
+
+            Package response = Communication.RecieveResponse();
+
+            if (response.Operation == Operation.AddClientOk)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        internal bool CreateAppointment(Appointment appointment, Group group)
+        {
+            List<object> items = new List<object>();
+            items.Add(appointment);
+            items.Add(group);
+            Package request = new Package
+            {
+                Operation = Operation.AddAppointment,
+                ItemList = items
+        };
+
+            Communication.SendRequest(request);
+
+            Package response = Communication.RecieveResponse();
+
+            if (response.Operation == Operation.AddAppointmentOk)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public List<Appointment> GetAllAppointments()
+        {
+            Package request = new Package
+            {
+                Operation = Operation.GetAllAppointments
+            };
+
+            Communication.SendRequest(request);
+
+            Package response = Communication.RecieveResponse();
+            List<Appointment> appointment = response.ItemList.ConvertAll(x => (Appointment)x);
+
+            return appointment;
+        }
+
+        internal List<Appointment> GetAllAppointmentsByGroup(Group group)
+        {
+            Package request = new Package
+            {
+                Operation = Operation.GetAllAppointments,
+            };
+
+            Communication.SendRequest(request);
+
+            Package response = Communication.RecieveResponse();
+
+            List<Appointment> appointments = response.ItemList.ConvertAll(x => (Appointment)x);
+
+            List<Appointment> appointmentsByGroup = new List<Appointment>();
+
+            foreach (Appointment appointment in appointments)
+            {
+                if (appointment.Group.GroupID == group.GroupID)
+                {
+                    appointmentsByGroup.Add(appointment);
+                }
+            }
+
+            return appointmentsByGroup;
+        }
+
+        internal void DeleteAppointment(Appointment appointment)
+        {
+            Package request = new Package
+            {
+                Item = appointment,
+                Operation = Operation.DeleteAppointment
+            };
+
+            Communication.SendRequest(request);
+
+            Package response = Communication.RecieveResponse();
+        }
+
+        internal bool UpdateAppointment(Appointment appointment)
+        {
+            List<object> items = new List<object>();
+            items.Add(appointment);
+            items.Add(appointment.Group);
+
+            Package package = new Package
+            {
+                Operation = Operation.UpdateAppointment,
+                ItemList = items
+            };
+
+            Communication.SendRequest(package);
+
+            Package response = Communication.RecieveResponse();
+
+            if (response.Operation == Operation.UpdateAppointmentOk)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public List<Attendance> GetAllAttendances()
+        {
+            Package request = new Package
+            {
+                Operation = Operation.GetAllAttendances
+            };
+
+            Communication.SendRequest(request);
+
+            Package response = Communication.RecieveResponse();
+            List<Attendance> attendances = response.ItemList.ConvertAll(x => (Attendance)x);
+
+            return attendances;
+        }
+
+        internal bool CreateAttendance(Attendance attendance)
+        {
+            Package request = new Package
+            {
+                Operation = Operation.AddAttendance,
+                Item = attendance
+            };
+
+            Communication.SendRequest(request);
+
+            Package response = Communication.RecieveResponse();
+
+            if (response.Operation == Operation.AddAttendanceOk)
+            {
+                return true;
+            }
+            return false;
+        }
 
 
     }

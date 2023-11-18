@@ -8,6 +8,6 @@ namespace Domain
 {
     public enum Gender
     {
-        Male, Female
+        Muski, Zenski
     }
 }

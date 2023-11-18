@@ -36,10 +36,6 @@ namespace Client.Forms.Login
                 frmMain.ShowDialog();
                 this.Visible = true;
             }
-            else if (ClientController.Instance.LoginClient(user) == 2)
-            {
-                MessageBox.Show($"Klijent je već ulogovan na sistem!");
-            }
             else
             {
                 MessageBox.Show("Neuspešna prijava!");

@@ -48,6 +48,18 @@
   <ItemGroup>
     <Compile Include="ClientCommunication.cs" />
     <Compile Include="ClientController.cs" />
+    <Compile Include="Forms\Attendance\UcAddAttendance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Attendance\UcAddAttendance.Designer.cs">
+      <DependentUpon>UcAddAttendance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Attendance\UcGetAllAttendance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Attendance\UcGetAllAttendance.Designer.cs">
+      <DependentUpon>UcGetAllAttendance.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Client\FrmClientDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +135,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValidatorClient.cs" />
+    <EmbeddedResource Include="Forms\Attendance\UcAddAttendance.resx">
+      <DependentUpon>UcAddAttendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Attendance\UcGetAllAttendance.resx">
+      <DependentUpon>UcGetAllAttendance.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Client\FrmClientDetails.resx">
       <DependentUpon>FrmClientDetails.cs</DependentUpon>
     </EmbeddedResource>

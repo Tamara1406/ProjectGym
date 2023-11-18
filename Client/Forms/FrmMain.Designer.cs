@@ -36,12 +36,9 @@
             this.klijentiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiGetAllClient = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiAddClient = new System.Windows.Forms.ToolStripMenuItem();
-            this.grupeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiGetAllGroup = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiAddGroup = new System.Windows.Forms.ToolStripMenuItem();
             this.terminiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiGetAllAppointment = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiLogin = new System.Windows.Forms.ToolStripMenuItem();
+            this.dodajTerminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,12 +55,10 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.treneriToolStripMenuItem,
             this.klijentiToolStripMenuItem,
-            this.grupeToolStripMenuItem,
-            this.terminiToolStripMenuItem,
-            this.tsmiLogin});
+            this.terminiToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(946, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(946, 33);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -72,21 +67,24 @@
             this.treneriToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiGetAllCoach,
             this.tsmiAddCoach});
+            this.treneriToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.treneriToolStripMenuItem.Name = "treneriToolStripMenuItem";
-            this.treneriToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
+            this.treneriToolStripMenuItem.Size = new System.Drawing.Size(84, 29);
             this.treneriToolStripMenuItem.Text = "Treneri";
             // 
             // tsmiGetAllCoach
             // 
+            this.tsmiGetAllCoach.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.tsmiGetAllCoach.Name = "tsmiGetAllCoach";
-            this.tsmiGetAllCoach.Size = new System.Drawing.Size(224, 26);
+            this.tsmiGetAllCoach.Size = new System.Drawing.Size(224, 30);
             this.tsmiGetAllCoach.Text = "Prikaži trenere";
             this.tsmiGetAllCoach.Click += new System.EventHandler(this.tsmiGetAllCoach_Click);
             // 
             // tsmiAddCoach
             // 
+            this.tsmiAddCoach.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.tsmiAddCoach.Name = "tsmiAddCoach";
-            this.tsmiAddCoach.Size = new System.Drawing.Size(224, 26);
+            this.tsmiAddCoach.Size = new System.Drawing.Size(224, 30);
             this.tsmiAddCoach.Text = "Dodaj trenera";
             this.tsmiAddCoach.Click += new System.EventHandler(this.tsmiAddCoach_Click);
             // 
@@ -95,62 +93,52 @@
             this.klijentiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiGetAllClient,
             this.tsmiAddClient});
+            this.klijentiToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.klijentiToolStripMenuItem.Name = "klijentiToolStripMenuItem";
-            this.klijentiToolStripMenuItem.Size = new System.Drawing.Size(69, 24);
+            this.klijentiToolStripMenuItem.Size = new System.Drawing.Size(84, 29);
             this.klijentiToolStripMenuItem.Text = "Klijenti";
             // 
             // tsmiGetAllClient
             // 
+            this.tsmiGetAllClient.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.tsmiGetAllClient.Name = "tsmiGetAllClient";
-            this.tsmiGetAllClient.Size = new System.Drawing.Size(187, 26);
+            this.tsmiGetAllClient.Size = new System.Drawing.Size(220, 30);
             this.tsmiGetAllClient.Text = "Prikaži klijente";
+            this.tsmiGetAllClient.Click += new System.EventHandler(this.tsmiGetAllClient_Click);
             // 
             // tsmiAddClient
             // 
+            this.tsmiAddClient.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.tsmiAddClient.Name = "tsmiAddClient";
-            this.tsmiAddClient.Size = new System.Drawing.Size(187, 26);
+            this.tsmiAddClient.Size = new System.Drawing.Size(220, 30);
             this.tsmiAddClient.Text = "Dodaj klijenta";
-            // 
-            // grupeToolStripMenuItem
-            // 
-            this.grupeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmiGetAllGroup,
-            this.tsmiAddGroup});
-            this.grupeToolStripMenuItem.Name = "grupeToolStripMenuItem";
-            this.grupeToolStripMenuItem.Size = new System.Drawing.Size(63, 24);
-            this.grupeToolStripMenuItem.Text = "Grupe";
-            // 
-            // tsmiGetAllGroup
-            // 
-            this.tsmiGetAllGroup.Name = "tsmiGetAllGroup";
-            this.tsmiGetAllGroup.Size = new System.Drawing.Size(178, 26);
-            this.tsmiGetAllGroup.Text = "Prikaži grupe";
-            // 
-            // tsmiAddGroup
-            // 
-            this.tsmiAddGroup.Name = "tsmiAddGroup";
-            this.tsmiAddGroup.Size = new System.Drawing.Size(178, 26);
-            this.tsmiAddGroup.Text = "Dodaj grupu";
+            this.tsmiAddClient.Click += new System.EventHandler(this.tsmiAddClient_Click);
             // 
             // terminiToolStripMenuItem
             // 
             this.terminiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmiGetAllAppointment});
+            this.tsmiGetAllAppointment,
+            this.dodajTerminToolStripMenuItem});
+            this.terminiToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.terminiToolStripMenuItem.Name = "terminiToolStripMenuItem";
-            this.terminiToolStripMenuItem.Size = new System.Drawing.Size(72, 24);
+            this.terminiToolStripMenuItem.Size = new System.Drawing.Size(88, 29);
             this.terminiToolStripMenuItem.Text = "Termini";
             // 
             // tsmiGetAllAppointment
             // 
+            this.tsmiGetAllAppointment.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.tsmiGetAllAppointment.Name = "tsmiGetAllAppointment";
-            this.tsmiGetAllAppointment.Size = new System.Drawing.Size(190, 26);
+            this.tsmiGetAllAppointment.Size = new System.Drawing.Size(222, 30);
             this.tsmiGetAllAppointment.Text = "Tabela termina";
+            this.tsmiGetAllAppointment.Click += new System.EventHandler(this.tsmiGetAllAppointment_Click);
             // 
-            // tsmiLogin
+            // dodajTerminToolStripMenuItem
             // 
-            this.tsmiLogin.Name = "tsmiLogin";
-            this.tsmiLogin.Size = new System.Drawing.Size(67, 24);
-            this.tsmiLogin.Text = "Prijava";
+            this.dodajTerminToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.dodajTerminToolStripMenuItem.Name = "dodajTerminToolStripMenuItem";
+            this.dodajTerminToolStripMenuItem.Size = new System.Drawing.Size(222, 30);
+            this.dodajTerminToolStripMenuItem.Text = "Dodaj termin";
+            this.dodajTerminToolStripMenuItem.Click += new System.EventHandler(this.dodajTerminToolStripMenuItem_Click);
             // 
             // FrmMain
             // 
@@ -175,15 +163,12 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem treneriToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem klijentiToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem grupeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem terminiToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tsmiLogin;
         private System.Windows.Forms.ToolStripMenuItem tsmiGetAllCoach;
         private System.Windows.Forms.ToolStripMenuItem tsmiAddCoach;
         private System.Windows.Forms.ToolStripMenuItem tsmiGetAllClient;
         private System.Windows.Forms.ToolStripMenuItem tsmiAddClient;
-        private System.Windows.Forms.ToolStripMenuItem tsmiGetAllGroup;
-        private System.Windows.Forms.ToolStripMenuItem tsmiAddGroup;
         private System.Windows.Forms.ToolStripMenuItem tsmiGetAllAppointment;
+        private System.Windows.Forms.ToolStripMenuItem dodajTerminToolStripMenuItem;
     }
 }

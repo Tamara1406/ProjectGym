@@ -52,5 +52,11 @@
     <Compile Include="Appointment.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DBBroker\DBBroker.csproj">
+      <Project>{3B136110-A3B2-4BBF-B287-04E9EE66D642}</Project>
+      <Name>DBBroker</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

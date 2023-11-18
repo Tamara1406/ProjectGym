@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DBBroker;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data.SqlClient;
@@ -55,6 +56,8 @@ namespace Domain
                 };
                 users.Add(user);
             }
+
+            BrokerController.Instance.CloseConnection();
 
             return users;
         }

@@ -28,93 +28,90 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnDeleteTerm = new System.Windows.Forms.Button();
-            this.btnAddTerm = new System.Windows.Forms.Button();
-            this.btnDetails = new System.Windows.Forms.Button();
-            this.btnSearchTerm = new System.Windows.Forms.Button();
+            this.btnDeleteApp = new System.Windows.Forms.Button();
+            this.btnSearchApp = new System.Windows.Forms.Button();
             this.cmbGroup = new System.Windows.Forms.ComboBox();
             this.lblSearchTerm = new System.Windows.Forms.Label();
-            this.dgwGetAllTerms = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dgwGetAllTerms)).BeginInit();
+            this.dgvGetAllApp = new System.Windows.Forms.DataGridView();
+            this.btnUpdateApp = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGetAllApp)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnDeleteTerm
+            // btnDeleteApp
             // 
-            this.btnDeleteTerm.Location = new System.Drawing.Point(452, 423);
-            this.btnDeleteTerm.Name = "btnDeleteTerm";
-            this.btnDeleteTerm.Size = new System.Drawing.Size(123, 36);
-            this.btnDeleteTerm.TabIndex = 13;
-            this.btnDeleteTerm.Text = "Obriši termin";
-            this.btnDeleteTerm.UseVisualStyleBackColor = true;
+            this.btnDeleteApp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteApp.Location = new System.Drawing.Point(452, 423);
+            this.btnDeleteApp.Name = "btnDeleteApp";
+            this.btnDeleteApp.Size = new System.Drawing.Size(123, 36);
+            this.btnDeleteApp.TabIndex = 13;
+            this.btnDeleteApp.Text = "Obriši termin";
+            this.btnDeleteApp.UseVisualStyleBackColor = true;
+            this.btnDeleteApp.Click += new System.EventHandler(this.btnDeleteApp_Click);
             // 
-            // btnAddTerm
+            // btnSearchApp
             // 
-            this.btnAddTerm.Location = new System.Drawing.Point(452, 474);
-            this.btnAddTerm.Name = "btnAddTerm";
-            this.btnAddTerm.Size = new System.Drawing.Size(123, 36);
-            this.btnAddTerm.TabIndex = 12;
-            this.btnAddTerm.Text = "Kreiraj termin";
-            this.btnAddTerm.UseVisualStyleBackColor = true;
-            // 
-            // btnDetails
-            // 
-            this.btnDetails.Location = new System.Drawing.Point(301, 423);
-            this.btnDetails.Name = "btnDetails";
-            this.btnDetails.Size = new System.Drawing.Size(123, 36);
-            this.btnDetails.TabIndex = 11;
-            this.btnDetails.Text = "Detalji";
-            this.btnDetails.UseVisualStyleBackColor = true;
-            // 
-            // btnSearchTerm
-            // 
-            this.btnSearchTerm.Location = new System.Drawing.Point(329, 51);
-            this.btnSearchTerm.Name = "btnSearchTerm";
-            this.btnSearchTerm.Size = new System.Drawing.Size(95, 32);
-            this.btnSearchTerm.TabIndex = 10;
-            this.btnSearchTerm.Text = "Pretraži";
-            this.btnSearchTerm.UseVisualStyleBackColor = true;
+            this.btnSearchApp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchApp.Location = new System.Drawing.Point(360, 54);
+            this.btnSearchApp.Name = "btnSearchApp";
+            this.btnSearchApp.Size = new System.Drawing.Size(95, 32);
+            this.btnSearchApp.TabIndex = 10;
+            this.btnSearchApp.Text = "Pretraži";
+            this.btnSearchApp.UseVisualStyleBackColor = true;
+            this.btnSearchApp.Click += new System.EventHandler(this.btnSearchApp_Click);
             // 
             // cmbGroup
             // 
+            this.cmbGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbGroup.FormattingEnabled = true;
-            this.cmbGroup.Location = new System.Drawing.Point(166, 56);
+            this.cmbGroup.Location = new System.Drawing.Point(194, 56);
             this.cmbGroup.Name = "cmbGroup";
-            this.cmbGroup.Size = new System.Drawing.Size(131, 24);
+            this.cmbGroup.Size = new System.Drawing.Size(131, 30);
             this.cmbGroup.TabIndex = 9;
             // 
             // lblSearchTerm
             // 
             this.lblSearchTerm.AutoSize = true;
+            this.lblSearchTerm.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSearchTerm.Location = new System.Drawing.Point(54, 59);
             this.lblSearchTerm.Name = "lblSearchTerm";
-            this.lblSearchTerm.Size = new System.Drawing.Size(94, 16);
+            this.lblSearchTerm.Size = new System.Drawing.Size(134, 24);
             this.lblSearchTerm.TabIndex = 8;
             this.lblSearchTerm.Text = "Pretraži termin:";
             // 
-            // dgwGetAllTerms
+            // dgvGetAllApp
             // 
-            this.dgwGetAllTerms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwGetAllTerms.Location = new System.Drawing.Point(48, 105);
-            this.dgwGetAllTerms.Name = "dgwGetAllTerms";
-            this.dgwGetAllTerms.RowHeadersWidth = 51;
-            this.dgwGetAllTerms.RowTemplate.Height = 24;
-            this.dgwGetAllTerms.Size = new System.Drawing.Size(540, 295);
-            this.dgwGetAllTerms.TabIndex = 7;
+            this.dgvGetAllApp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGetAllApp.Location = new System.Drawing.Point(48, 105);
+            this.dgvGetAllApp.Name = "dgvGetAllApp";
+            this.dgvGetAllApp.RowHeadersWidth = 51;
+            this.dgvGetAllApp.RowTemplate.Height = 24;
+            this.dgvGetAllApp.Size = new System.Drawing.Size(540, 295);
+            this.dgvGetAllApp.TabIndex = 7;
             // 
-            // UcGetAllTerms
+            // btnUpdateApp
+            // 
+            this.btnUpdateApp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateApp.Location = new System.Drawing.Point(301, 423);
+            this.btnUpdateApp.Name = "btnUpdateApp";
+            this.btnUpdateApp.Size = new System.Drawing.Size(123, 36);
+            this.btnUpdateApp.TabIndex = 14;
+            this.btnUpdateApp.Text = "Ažuriraj termin";
+            this.btnUpdateApp.UseVisualStyleBackColor = true;
+            this.btnUpdateApp.Click += new System.EventHandler(this.btnUpdateApp_Click);
+            // 
+            // UcGetAllAppointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnDeleteTerm);
-            this.Controls.Add(this.btnAddTerm);
-            this.Controls.Add(this.btnDetails);
-            this.Controls.Add(this.btnSearchTerm);
+            this.Controls.Add(this.btnUpdateApp);
+            this.Controls.Add(this.btnDeleteApp);
+            this.Controls.Add(this.btnSearchApp);
             this.Controls.Add(this.cmbGroup);
             this.Controls.Add(this.lblSearchTerm);
-            this.Controls.Add(this.dgwGetAllTerms);
-            this.Name = "UcGetAllTerms";
-            this.Size = new System.Drawing.Size(668, 532);
-            ((System.ComponentModel.ISupportInitialize)(this.dgwGetAllTerms)).EndInit();
+            this.Controls.Add(this.dgvGetAllApp);
+            this.Name = "UcGetAllAppointment";
+            this.Size = new System.Drawing.Size(668, 497);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGetAllApp)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -122,12 +119,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnDeleteTerm;
-        private System.Windows.Forms.Button btnAddTerm;
-        private System.Windows.Forms.Button btnDetails;
-        private System.Windows.Forms.Button btnSearchTerm;
+        private System.Windows.Forms.Button btnDeleteApp;
+        private System.Windows.Forms.Button btnSearchApp;
         private System.Windows.Forms.ComboBox cmbGroup;
         private System.Windows.Forms.Label lblSearchTerm;
-        private System.Windows.Forms.DataGridView dgwGetAllTerms;
+        private System.Windows.Forms.DataGridView dgvGetAllApp;
+        private System.Windows.Forms.Button btnUpdateApp;
     }
 }

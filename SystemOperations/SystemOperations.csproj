@@ -41,8 +41,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppointmentSO\CreateAppointmentSO.cs" />
+    <Compile Include="AppointmentSO\DeleteAppointmentSO.cs" />
+    <Compile Include="AppointmentSO\GetAllAppointmentsSO.cs" />
+    <Compile Include="AppointmentSO\UpdateAppointmentSO.cs" />
+    <Compile Include="Attendance\CreateAttendanceSO.cs" />
+    <Compile Include="Attendance\GetAllAttendanceSO.cs" />
     <Compile Include="BaseSO.cs" />
+    <Compile Include="ClientSO\CreateClientSO.cs" />
+    <Compile Include="ClientSO\DeleteClientSO.cs" />
+    <Compile Include="ClientSO\GetAllClientsSO.cs" />
+    <Compile Include="ClientSO\UpdateClientSO.cs" />
+    <Compile Include="CoachSO\CreateCoachSO.cs" />
+    <Compile Include="CoachSO\DeleteCoachSO.cs" />
+    <Compile Include="CoachSO\GetAllCoachesSO.cs" />
+    <Compile Include="CoachSO\UpdateCoachSO.cs" />
+    <Compile Include="EducationSO\GetAllEducationsSO.cs" />
+    <Compile Include="GroupSO\CreateGroupSO.cs" />
+    <Compile Include="GroupSO\GetAllGroupsSO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserSO\CreateAccountSO.cs" />
+    <Compile Include="UserSO\GetAllUsersSO.cs" />
+    <Compile Include="UserSO\GetUserByUsername.cs" />
+    <Compile Include="UserSO\UpdateAccountSO.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj">
@@ -54,12 +75,6 @@
       <Name>Repository</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="AppointmentSO\" />
-    <Folder Include="ClientSO\" />
-    <Folder Include="CoachSO\" />
-    <Folder Include="GroupSO\" />
-    <Folder Include="UserSO\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

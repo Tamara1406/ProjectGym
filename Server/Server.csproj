@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -57,6 +58,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServerCommunication.cs" />
     <Compile Include="ServerController.cs" />
+    <Compile Include="ValidatorServer.cs" />
     <EmbeddedResource Include="FrmServer.resx">
       <DependentUpon>FrmServer.cs</DependentUpon>
     </EmbeddedResource>
@@ -86,6 +88,10 @@
     <ProjectReference Include="..\CommunicationClasses\CommunicationClasses.csproj">
       <Project>{44787B45-CA19-414C-9A56-97C136E1CBC6}</Project>
       <Name>CommunicationClasses</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{44023FD9-EE5F-4316-B44C-8AAF50ECD5A9}</Project>
+      <Name>Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\SystemOperations\SystemOperations.csproj">
       <Project>{F478C448-5045-4ECD-A893-2DF51AFEAFA9}</Project>

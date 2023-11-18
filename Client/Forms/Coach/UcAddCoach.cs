@@ -26,20 +26,33 @@ namespace Client.Forms.Coach
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Domain.Coach coach = new Domain.Coach();
-            coach.FirstName = txtFirstName.Text;
-            coach.LastName = txtLastName.Text;
-            coach.Education = (Domain.Education)cmbEducation.SelectedItem;
+            try
+            {
+                Domain.Coach coach = new Domain.Coach();
+                if(txtFirstName.Text == "" || txtLastName.Text == "" || cmbEducation.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Morate popuniti sva polja!\nSistem ne može da kreira trenera!");
+                    return;
+                }
+                coach.FirstName = txtFirstName.Text;
+                coach.LastName = txtLastName.Text;
+                coach.Education = (Domain.Education)cmbEducation.SelectedItem;
 
-            if (ClientController.Instance.CreateCoach(coach))
-            {
-                MessageBox.Show("Novi trener je kreiran!");
-                Visible = false;
+                if (ClientController.Instance.CreateCoach(coach))
+                {
+                    MessageBox.Show("Sistem je kreirao trenera!");
+                    Visible = false;
+                }
+                else
+                {
+                    MessageBox.Show("Sistem ne može da kreira trenera!");
+                }
             }
-            else
+            catch
             {
-                MessageBox.Show("Neuspešno kreiranje trenera!");
+                MessageBox.Show("Sistem ne može da kreira trenera!");
             }
+            
         }
     }
 }

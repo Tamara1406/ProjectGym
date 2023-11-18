@@ -40,7 +40,8 @@
             // 
             // btnDeleteCoach
             // 
-            this.btnDeleteCoach.Location = new System.Drawing.Point(159, 270);
+            this.btnDeleteCoach.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteCoach.Location = new System.Drawing.Point(92, 289);
             this.btnDeleteCoach.Name = "btnDeleteCoach";
             this.btnDeleteCoach.Size = new System.Drawing.Size(115, 36);
             this.btnDeleteCoach.TabIndex = 15;
@@ -50,7 +51,8 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(302, 270);
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Location = new System.Drawing.Point(261, 289);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(126, 36);
             this.btnSave.TabIndex = 14;
@@ -60,50 +62,56 @@
             // 
             // cmbEducation
             // 
+            this.cmbEducation.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbEducation.FormattingEnabled = true;
-            this.cmbEducation.Location = new System.Drawing.Point(199, 189);
+            this.cmbEducation.Location = new System.Drawing.Point(211, 192);
             this.cmbEducation.Name = "cmbEducation";
-            this.cmbEducation.Size = new System.Drawing.Size(154, 24);
+            this.cmbEducation.Size = new System.Drawing.Size(154, 30);
             this.cmbEducation.TabIndex = 13;
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(199, 129);
+            this.txtLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLastName.Location = new System.Drawing.Point(211, 130);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(154, 22);
+            this.txtLastName.Size = new System.Drawing.Size(154, 28);
             this.txtLastName.TabIndex = 12;
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(199, 67);
+            this.txtFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFirstName.Location = new System.Drawing.Point(211, 68);
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(154, 22);
+            this.txtFirstName.Size = new System.Drawing.Size(154, 28);
             this.txtFirstName.TabIndex = 11;
             // 
             // lblEducation
             // 
             this.lblEducation.AutoSize = true;
-            this.lblEducation.Location = new System.Drawing.Point(73, 198);
+            this.lblEducation.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEducation.Location = new System.Drawing.Point(75, 195);
             this.lblEducation.Name = "lblEducation";
-            this.lblEducation.Size = new System.Drawing.Size(87, 16);
+            this.lblEducation.Size = new System.Drawing.Size(122, 24);
             this.lblEducation.TabIndex = 10;
             this.lblEducation.Text = "Obrazovanje:";
             // 
             // lblLastName
             // 
             this.lblLastName.AutoSize = true;
-            this.lblLastName.Location = new System.Drawing.Point(73, 136);
+            this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLastName.Location = new System.Drawing.Point(75, 133);
             this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(59, 16);
+            this.lblLastName.Size = new System.Drawing.Size(84, 24);
             this.lblLastName.TabIndex = 9;
             this.lblLastName.Text = "Prezime:";
             // 
             // lblFirstName
             // 
             this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Location = new System.Drawing.Point(73, 74);
+            this.lblFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFirstName.Location = new System.Drawing.Point(75, 71);
             this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(32, 16);
+            this.lblFirstName.Size = new System.Drawing.Size(46, 24);
             this.lblFirstName.TabIndex = 8;
             this.lblFirstName.Text = "Ime:";
             // 
@@ -111,7 +119,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(501, 450);
             this.Controls.Add(this.btnDeleteCoach);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.cmbEducation);

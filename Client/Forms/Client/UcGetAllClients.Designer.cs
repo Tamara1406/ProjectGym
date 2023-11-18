@@ -41,9 +41,10 @@
             // 
             // btnDetailsClient
             // 
-            this.btnDetailsClient.Location = new System.Drawing.Point(584, 425);
+            this.btnDetailsClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDetailsClient.Location = new System.Drawing.Point(540, 425);
             this.btnDetailsClient.Name = "btnDetailsClient";
-            this.btnDetailsClient.Size = new System.Drawing.Size(137, 35);
+            this.btnDetailsClient.Size = new System.Drawing.Size(145, 43);
             this.btnDetailsClient.TabIndex = 16;
             this.btnDetailsClient.Text = "Detalji";
             this.btnDetailsClient.UseVisualStyleBackColor = true;
@@ -64,9 +65,10 @@
             // 
             // btnSearchGroup
             // 
-            this.btnSearchGroup.Location = new System.Drawing.Point(535, 75);
+            this.btnSearchGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchGroup.Location = new System.Drawing.Point(576, 75);
             this.btnSearchGroup.Name = "btnSearchGroup";
-            this.btnSearchGroup.Size = new System.Drawing.Size(112, 30);
+            this.btnSearchGroup.Size = new System.Drawing.Size(135, 37);
             this.btnSearchGroup.TabIndex = 14;
             this.btnSearchGroup.Text = "Prikazi grupu";
             this.btnSearchGroup.UseVisualStyleBackColor = true;
@@ -74,9 +76,10 @@
             // 
             // btnSearchName
             // 
-            this.btnSearchName.Location = new System.Drawing.Point(535, 34);
+            this.btnSearchName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchName.Location = new System.Drawing.Point(576, 32);
             this.btnSearchName.Name = "btnSearchName";
-            this.btnSearchName.Size = new System.Drawing.Size(112, 29);
+            this.btnSearchName.Size = new System.Drawing.Size(135, 39);
             this.btnSearchName.TabIndex = 13;
             this.btnSearchName.Text = "Nadji klijenta";
             this.btnSearchName.UseVisualStyleBackColor = true;
@@ -84,34 +87,38 @@
             // 
             // cmbGroup
             // 
+            this.cmbGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbGroup.FormattingEnabled = true;
-            this.cmbGroup.Location = new System.Drawing.Point(331, 79);
+            this.cmbGroup.Location = new System.Drawing.Point(392, 79);
             this.cmbGroup.Name = "cmbGroup";
-            this.cmbGroup.Size = new System.Drawing.Size(167, 24);
+            this.cmbGroup.Size = new System.Drawing.Size(167, 30);
             this.cmbGroup.TabIndex = 12;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(331, 37);
+            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.Location = new System.Drawing.Point(392, 37);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(167, 22);
+            this.txtName.Size = new System.Drawing.Size(167, 28);
             this.txtName.TabIndex = 11;
             // 
             // lblGroup
             // 
             this.lblGroup.AutoSize = true;
-            this.lblGroup.Location = new System.Drawing.Point(138, 82);
+            this.lblGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGroup.Location = new System.Drawing.Point(25, 79);
             this.lblGroup.Name = "lblGroup";
-            this.lblGroup.Size = new System.Drawing.Size(175, 16);
+            this.lblGroup.Size = new System.Drawing.Size(247, 24);
             this.lblGroup.TabIndex = 10;
             this.lblGroup.Text = "Pretrazi klijente prema grupi:";
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(61, 40);
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Location = new System.Drawing.Point(25, 40);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(252, 16);
+            this.lblName.Size = new System.Drawing.Size(361, 24);
             this.lblName.TabIndex = 9;
             this.lblName.Text = "Pretrazi klijente prema imenu i prezimenu:";
             // 

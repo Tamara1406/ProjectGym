@@ -48,145 +48,163 @@
             // 
             // btnDeleteClient
             // 
+            this.btnDeleteClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteClient.Location = new System.Drawing.Point(149, 381);
             this.btnDeleteClient.Name = "btnDeleteClient";
             this.btnDeleteClient.Size = new System.Drawing.Size(115, 36);
             this.btnDeleteClient.TabIndex = 31;
             this.btnDeleteClient.Text = "Obrisi klijenta";
             this.btnDeleteClient.UseVisualStyleBackColor = true;
+            this.btnDeleteClient.Click += new System.EventHandler(this.btnDeleteClient_Click);
             // 
             // btnSave
             // 
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Location = new System.Drawing.Point(292, 381);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(126, 36);
             this.btnSave.TabIndex = 30;
             this.btnSave.Text = "Sacuvaj izmene";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // cmbGroup
             // 
+            this.cmbGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbGroup.FormattingEnabled = true;
             this.cmbGroup.Location = new System.Drawing.Point(202, 304);
             this.cmbGroup.Name = "cmbGroup";
-            this.cmbGroup.Size = new System.Drawing.Size(121, 24);
+            this.cmbGroup.Size = new System.Drawing.Size(121, 30);
             this.cmbGroup.TabIndex = 29;
             // 
             // txtGender
             // 
+            this.txtGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGender.Location = new System.Drawing.Point(202, 158);
             this.txtGender.Name = "txtGender";
             this.txtGender.ReadOnly = true;
-            this.txtGender.Size = new System.Drawing.Size(145, 22);
+            this.txtGender.Size = new System.Drawing.Size(145, 28);
             this.txtGender.TabIndex = 28;
             // 
             // lblKg
             // 
             this.lblKg.AutoSize = true;
+            this.lblKg.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblKg.Location = new System.Drawing.Point(308, 261);
             this.lblKg.Name = "lblKg";
-            this.lblKg.Size = new System.Drawing.Size(22, 16);
+            this.lblKg.Size = new System.Drawing.Size(30, 24);
             this.lblKg.TabIndex = 27;
             this.lblKg.Text = "kg";
             // 
             // lblCm
             // 
             this.lblCm.AutoSize = true;
+            this.lblCm.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCm.Location = new System.Drawing.Point(308, 209);
             this.lblCm.Name = "lblCm";
-            this.lblCm.Size = new System.Drawing.Size(25, 16);
+            this.lblCm.Size = new System.Drawing.Size(36, 24);
             this.lblCm.TabIndex = 26;
             this.lblCm.Text = "cm";
             // 
             // txtHeigth
             // 
+            this.txtHeigth.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHeigth.Location = new System.Drawing.Point(202, 206);
             this.txtHeigth.Name = "txtHeigth";
-            this.txtHeigth.Size = new System.Drawing.Size(100, 22);
+            this.txtHeigth.Size = new System.Drawing.Size(100, 28);
             this.txtHeigth.TabIndex = 25;
             // 
             // txtWeight
             // 
+            this.txtWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtWeight.Location = new System.Drawing.Point(202, 258);
             this.txtWeight.Name = "txtWeight";
-            this.txtWeight.Size = new System.Drawing.Size(100, 22);
+            this.txtWeight.Size = new System.Drawing.Size(100, 28);
             this.txtWeight.TabIndex = 24;
             // 
             // txtLastName
             // 
+            this.txtLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLastName.Location = new System.Drawing.Point(202, 107);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.ReadOnly = true;
-            this.txtLastName.Size = new System.Drawing.Size(145, 22);
+            this.txtLastName.Size = new System.Drawing.Size(145, 28);
             this.txtLastName.TabIndex = 23;
             // 
             // txtFirstName
             // 
+            this.txtFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFirstName.Location = new System.Drawing.Point(202, 63);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.ReadOnly = true;
-            this.txtFirstName.Size = new System.Drawing.Size(145, 22);
+            this.txtFirstName.Size = new System.Drawing.Size(145, 28);
             this.txtFirstName.TabIndex = 22;
             // 
             // lblLastName
             // 
             this.lblLastName.AutoSize = true;
+            this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLastName.Location = new System.Drawing.Point(77, 114);
             this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(59, 16);
+            this.lblLastName.Size = new System.Drawing.Size(84, 24);
             this.lblLastName.TabIndex = 21;
             this.lblLastName.Text = "Prezime:";
             // 
             // lblGender
             // 
             this.lblGender.AutoSize = true;
+            this.lblGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGender.Location = new System.Drawing.Point(77, 164);
             this.lblGender.Name = "lblGender";
-            this.lblGender.Size = new System.Drawing.Size(30, 16);
+            this.lblGender.Size = new System.Drawing.Size(42, 24);
             this.lblGender.TabIndex = 20;
             this.lblGender.Text = "Pol:";
             // 
             // lblHeight
             // 
             this.lblHeight.AutoSize = true;
+            this.lblHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHeight.Location = new System.Drawing.Point(77, 212);
             this.lblHeight.Name = "lblHeight";
-            this.lblHeight.Size = new System.Drawing.Size(47, 16);
+            this.lblHeight.Size = new System.Drawing.Size(66, 24);
             this.lblHeight.TabIndex = 19;
             this.lblHeight.Text = "Visina:";
             // 
             // lblWeight
             // 
             this.lblWeight.AutoSize = true;
+            this.lblWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWeight.Location = new System.Drawing.Point(77, 261);
             this.lblWeight.Name = "lblWeight";
-            this.lblWeight.Size = new System.Drawing.Size(46, 16);
+            this.lblWeight.Size = new System.Drawing.Size(64, 24);
             this.lblWeight.TabIndex = 18;
             this.lblWeight.Text = "Kilaza:";
             // 
             // lblGroup
             // 
             this.lblGroup.AutoSize = true;
+            this.lblGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGroup.Location = new System.Drawing.Point(77, 307);
             this.lblGroup.Name = "lblGroup";
-            this.lblGroup.Size = new System.Drawing.Size(47, 16);
+            this.lblGroup.Size = new System.Drawing.Size(67, 24);
             this.lblGroup.TabIndex = 17;
             this.lblGroup.Text = "Grupa:";
             // 
             // lblFirstName
             // 
             this.lblFirstName.AutoSize = true;
+            this.lblFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFirstName.Location = new System.Drawing.Point(77, 70);
             this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(32, 16);
+            this.lblFirstName.Size = new System.Drawing.Size(46, 24);
             this.lblFirstName.TabIndex = 16;
             this.lblFirstName.Text = "Ime:";
             // 
-            // Form1
+            // FrmClientDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(491, 491);
+            this.ClientSize = new System.Drawing.Size(547, 546);
             this.Controls.Add(this.btnDeleteClient);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.cmbGroup);
@@ -203,7 +221,7 @@
             this.Controls.Add(this.lblWeight);
             this.Controls.Add(this.lblGroup);
             this.Controls.Add(this.lblFirstName);
-            this.Name = "Form1";
+            this.Name = "FrmClientDetails";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();

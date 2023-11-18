@@ -1,21 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Domain
 {
+    [Serializable]
     public class Appointment : AbsEntity
     {
+        [Browsable(false)]
         public int AppointmentID { get; set; }
-        public DateTime Time { get; set; }
-        public int NumberOfTerms { get; set; }
+        public int Time { get; set; }
+        public int NumberOfAppointments { get; set; }
         public Group Group { get; set; }
-
-        public override string TableName => throw new NotImplementedException();
+        public override string ToString()
+        {
+            return Time + "h";
+        }
+        [Browsable(false)]
+        public override string TableName => " Appointment ";
 
         public override string CheckAttribute(AbsEntity entity)
         {
@@ -24,17 +32,57 @@ namespace Domain
 
         public override string CheckId(int key)
         {
-            throw new NotImplementedException();
+            return $" Appointment.AppointmentID = {key} ";
         }
 
         public override string JoinKeys()
         {
-            throw new NotImplementedException();
+            return "join [Group] on [Group].GroupID = [Appointment].[Group] " +
+                " join Coach on Coach.CoachID = [Group].Coach " +
+                " join Education on Education.EducationID = Coach.Education";
         }
 
         public override List<AbsEntity> ReaderRead(SqlDataReader reader)
         {
-            throw new NotImplementedException();
+            List<Appointment> appointments = new List<Appointment>();
+
+            while (reader.Read())
+            {
+
+                Education education = new Education
+                {
+                    EducationID = (int)reader[11],
+                    Qualifications = reader[12].ToString(),
+                };
+
+                Coach coach = new Coach
+                {
+                    CoachID = (int)reader[7],
+                    FirstName = reader[8].ToString(),
+                    LastName = reader[9].ToString(),
+                    Education = education,
+                };
+
+                Group group = new Group
+                {
+                    GroupID = (int)reader[4],
+                    Coach = coach,
+                    GroupName = (string)reader[6],
+                };
+
+
+                Appointment appointment = new Appointment
+                {
+                    AppointmentID = (int)reader[0],
+                    Time = (int)reader[1],
+                    NumberOfAppointments = (int)reader[2],
+                    Group = group,
+                };
+
+                appointments.Add(appointment);
+            }
+
+            return appointments.ConvertAll(x => (AbsEntity)x);
         }
 
         public override string Search(string criteria)
@@ -44,12 +92,17 @@ namespace Domain
 
         public override string ValuesToInsert(AbsEntity entity)
         {
-            throw new NotImplementedException();
+            Appointment appointment = (Appointment)entity;
+
+            return $" '{appointment.Time}', '{appointment.NumberOfAppointments}' ";
+
         }
 
         public override string ValuesToSet(AbsEntity entity)
         {
-            throw new NotImplementedException();
+            Appointment appointment = (Appointment)entity;
+            return $" [Time] = '{appointment.Time}', NumberOfAppointments = '{appointment.NumberOfAppointments}', [Group] = '{appointment.Group.GroupID}' ";
+
         }
     }
 }

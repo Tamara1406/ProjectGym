@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -7,12 +8,18 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
+    [Serializable]
     public class Education : AbsEntity
     {
+        [Browsable(false)]
         public int EducationID { get; set; }
         public string Qualifications { get; set; }
-
-        public override string TableName => throw new NotImplementedException();
+        public override string ToString()
+        {
+            return Qualifications;
+        }
+        [Browsable(false)]
+        public override string TableName => " Education ";
 
         public override string CheckAttribute(AbsEntity entity)
         {
@@ -26,12 +33,25 @@ namespace Domain
 
         public override string JoinKeys()
         {
-            throw new NotImplementedException();
+            return "";
         }
 
         public override List<AbsEntity> ReaderRead(SqlDataReader reader)
         {
-            throw new NotImplementedException();
+            List<AbsEntity> educations = new List<AbsEntity>();
+
+            while (reader.Read())
+            {
+                Education education = new Education
+                {
+                    EducationID = (int)reader[0],
+                    Qualifications = reader[1].ToString(),
+               };
+
+                educations.Add(education);
+            }
+
+            return educations;
         }
 
         public override string Search(string criteria)

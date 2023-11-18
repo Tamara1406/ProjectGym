@@ -53,6 +53,7 @@
             this.btnStopServer.TabIndex = 5;
             this.btnStopServer.Text = "STOP SERVER";
             this.btnStopServer.UseVisualStyleBackColor = true;
+            this.btnStopServer.Click += new System.EventHandler(this.btnStopServer_Click);
             // 
             // btnStartServer
             // 
@@ -63,8 +64,9 @@
             this.btnStartServer.TabIndex = 4;
             this.btnStartServer.Text = "START SERVER";
             this.btnStartServer.UseVisualStyleBackColor = true;
+            this.btnStartServer.Click += new System.EventHandler(this.btnStartServer_Click);
             // 
-            // Form1
+            // FrmServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -72,7 +74,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnStopServer);
             this.Controls.Add(this.btnStartServer);
-            this.Name = "Form1";
+            this.Name = "FrmServer";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();

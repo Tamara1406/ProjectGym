@@ -17,7 +17,7 @@ namespace DBBroker
         {
             string connectionString = ConfigurationManager.ConnectionStrings["psdb"].ConnectionString;
             string modifiedConnectionString = connectionString.Replace("\\\\", "\\");
-            Connection = new SqlConnection(modifiedConnectionString);
+            Connection = new SqlConnection(connectionString);
         }
     }
 }
