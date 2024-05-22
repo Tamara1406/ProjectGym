@@ -94,5 +94,10 @@ namespace Domain
             Coach coach = (Coach)entity;
             return $" FirstName = '{coach.FirstName}', LastName = '{coach.LastName}', Education = '{coach.Education.EducationID}'";
         }
+
+        public override string GetKey()
+        {
+            return CoachID + "";
+        }
     }
 }

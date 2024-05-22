@@ -113,5 +113,10 @@ namespace Domain
             Client client = (Client)entity;
             return $" FirstName = '{client.FirstName}', LastName = '{client.LastName}', Gender = '{(int)client.Gender}', Height = '{client.Height}', Weight = '{client.Weight}', [Group] = '{client.Group.GroupID}' ";
         }
+
+        public override string GetKey()
+        {
+            return ClientID + "";
+        }
     }
 }

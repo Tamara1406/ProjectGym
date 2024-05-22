@@ -21,29 +21,26 @@ namespace Client.Forms.Term
 
         private void FillComboBox()
         {
-            cmbCoach.DataSource = ClientController.Instance.GetAllCoaches();
-            cmbCoach.SelectedIndex = -1;
+            cmbGroup.DataSource = ClientController.Instance.GetAllGroups();
+            cmbGroup.SelectedIndex = -1;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
             {
-                if (txtGroupName.Text == "" || txtNumOfApp.Text == "" || txtTime.Text == "" || cmbCoach.SelectedIndex == -1)
+                if  (txtNumOfApp.Text == "" || dtpDate.Text == "" || cmbGroup.SelectedIndex == -1)
                 {
                     MessageBox.Show("Morate popuniti sva polja!\nSistem ne može da kreira novi termin!");
                     return;
                 }
-                Group group = new Group();
-                group.GroupName = txtGroupName.Text;
-                group.Coach = (Domain.Coach)cmbCoach.SelectedItem;
 
                 Domain.Appointment appointment = new Domain.Appointment();
                 appointment.NumberOfAppointments = Int32.Parse(txtNumOfApp.Text);
-                appointment.Time = Int32.Parse(txtTime.Text);
-                appointment.Group = group;
+                appointment.Time = DateTime.Parse(dtpDate.Value.ToString("dd/MM/yyyy"));
+                appointment.Group = (Domain.Group)cmbGroup.SelectedItem;
                 
-                if (ClientController.Instance.CreateAppointment(appointment, group))
+                if (ClientController.Instance.CreateAppointment(appointment))
                 {
                     MessageBox.Show("Sistem je kreirao novi termin!");
                     Visible = false;

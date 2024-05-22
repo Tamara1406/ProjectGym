@@ -12,6 +12,7 @@ namespace Domain
     {
         public abstract string TableName { get; }
         public abstract string CheckId(int key);
+        public abstract string GetKey();
         public abstract string ValuesToInsert(AbsEntity entity);
         public abstract string ValuesToSet(AbsEntity entity);
         public abstract string JoinKeys();

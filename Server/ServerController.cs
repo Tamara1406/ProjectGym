@@ -1,4 +1,5 @@
-﻿using Domain;
+﻿using CommunicationClasses;
+using Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,15 +31,16 @@ namespace Server
                 return instance;
             }
         }
-        private ServerController()
+        public ServerController()
         {
         }
 
         BaseSO operation;
-        public bool LoginCheck(User user)
+        public bool Login(User user, BaseSO operation)
         {
-            operation = new GetAllUsersSO();
-            operation.ExecuteOperation();
+            //operation = new GetAllUsersSO();
+            this.operation = operation;
+            this.operation.ExecuteOperation();
             List<User> users = operation.ResultList.ConvertAll(x => (User)x);
 
             foreach (User checkUser in users)
@@ -51,140 +53,276 @@ namespace Server
             return false;
         }
 
-        internal void RegisterUSer(User newUser)
+        public bool RegisterUser(User newUser, BaseSO operation)
         {
-            operation = new CreateAccountSO(newUser);
-            operation.ExecuteOperation();
+            //operation = new CreateAccountSO(newUser);
+            if (newUser.Username == null || newUser.Username.Length == 0 ||
+                newUser.Password == null || newUser.Password.Length == 0 ||
+                newUser.FirstName == null || newUser.FirstName.Length == 0 ||
+                newUser.LastName == null || newUser.LastName.Length == 0 ||
+                newUser.Email == null || newUser.Email.Length == 0)
+            {
+                return false;
+            }
+            else
+            {
+                this.operation = operation;
+                this.operation.ExecuteOperation();
+                return true;
+            }
         }
 
-        internal User GetUserByUsername(User user)
+        public User GetUserByUsername(User user, BaseSO operation)
         {
-            operation = new GetUserByUsernameSO(user);
-            operation.ExecuteOperation();
+            //operation = new GetUserByUsernameSO(user);
+            this.operation = operation;
+            this.operation.ExecuteOperation();
             return (User)operation.Result;
         }
 
-        internal void UpdateUser(User userToUpdate)
+        public bool UpdateUser(User userToUpdate, BaseSO operation)
         {
-            operation = new UpdateAccountSO(userToUpdate);
-            operation.ExecuteOperation();
+
+            //operation = new UpdateAccountSO(userToUpdate);
+            if (userToUpdate.Username == null || userToUpdate.Username.Length == 0 ||
+                userToUpdate.Password == null || userToUpdate.Password.Length == 0 ||
+                userToUpdate.FirstName == null || userToUpdate.FirstName.Length == 0 ||
+                userToUpdate.LastName == null || userToUpdate.LastName.Length == 0 ||
+                userToUpdate.Email == null || userToUpdate.Email.Length == 0)
+            {
+                return false;
+            }
+            else
+            {
+                this.operation = operation;
+                this.operation.ExecuteOperation();
+                return true;
+            }
         }
 
-        internal List<User> GetAllUsers()
+        public List<User> GetAllUsers(BaseSO operation)
         {
-            operation = new GetAllUsersSO();
-            operation.ExecuteOperation();
+            //operation = new GetAllUsersSO();
+            this.operation = operation;
+            this.operation.ExecuteOperation();
             return operation.ResultList.ConvertAll(x => (User)x);
         }
 
-        public List<Coach> GetAllCoaches()
+        public List<Coach> GetAllCoaches(BaseSO operation)
         {
-            operation = new GetAllCoachesSO();
-            operation.ExecuteOperation();
+            //operation = new GetAllCoachesSO();
+            this.operation = operation;
+            this.operation.ExecuteOperation();
             List<Coach> coaches = operation.ResultList.ConvertAll(x => (Coach)x);
             return coaches;
         }
 
-        public List<Education> GetAllEducations()
+        public List<Education> GetAllEducations(BaseSO operation)
         {
-            operation = new GetAllEducationsSO();
-            operation.ExecuteOperation();
+            //operation = new GetAllEducationsSO();
+            this.operation = operation;
+            this.operation.ExecuteOperation();
             List<Education> education = operation.ResultList.ConvertAll(x => (Education)x);
             return education;
         }
 
-        internal void DeleteCoach(Coach resToDelete)
+        public Coach DeleteCoach(Coach resToDelete, BaseSO operation)
         {
-            operation = new DeleteCoachSO(resToDelete);
-            operation.ExecuteOperation();
+            if (operation.Result == null)
+                throw new Exception("Ne postoji trener u bazi!");
+
+            //operation = new DeleteCoachSO(resToDelete);
+            this.operation = operation;
+            this.operation.ExecuteOperation();
+            return (Coach)operation.Result;
         }
 
-        public List<Group> GetAllGroups()
+        public List<Group> GetAllGroups(BaseSO operation)
         {
-            operation = new GetAllGroupsSO();
-            operation.ExecuteOperation();
+            //operation = new GetAllGroupsSO();
+            this.operation = operation;
+            this.operation.ExecuteOperation();
             List<Group> groups = operation.ResultList.ConvertAll(x => (Group)x);
             return groups;
         }
 
-        internal void UpdateCoach(Coach resToUpdate)
+        public bool UpdateCoach(Coach resToUpdate, BaseSO operation)
         {
-            operation = new UpdateCoachSO(resToUpdate);
-            operation.ExecuteOperation();
+            //operation = new UpdateCoachSO(resToUpdate);
+            if (resToUpdate.FirstName == null || resToUpdate.FirstName.Length == 0 ||
+                resToUpdate.LastName == null || resToUpdate.LastName.Length == 0 ||
+                resToUpdate.Education == null)
+            {
+                return false;
+            }
+            else
+            {
+                this.operation = operation;
+                this.operation.ExecuteOperation();
+                return true;
+            }
         }
 
-        internal void CreateCoach(Coach coach)
+        public bool CreateCoach(Coach coach, BaseSO operation)
         {
-            operation = new CreateCoachSO(coach);
-            operation.ExecuteOperation();
+            //operation = new CreateCoachSO(coach);
+            if (coach.FirstName == null || coach.FirstName.Length == 0 ||
+            coach.LastName == null || coach.LastName.Length == 0 ||
+            coach.Education == null)
+            {
+                return false;
+            }
+            else
+            {
+                this.operation = operation;
+                this.operation.ExecuteOperation();
+                return true;
+            }
         }
 
-        public List<Client> GetAllClients()
+        public List<Client> GetAllClients(BaseSO operation)
         {
-            operation = new GetAllClientsSO();
-            operation.ExecuteOperation();
+            //operation = new GetAllClientsSO();
+            this.operation = operation;
+            this.operation.ExecuteOperation();
             List<Client> clients = operation.ResultList.ConvertAll(x => (Client)x);
             return clients;
         }
 
-        internal void DeleteClient(Client clientToDelete)
+        public Client DeleteClient(Client clientToDelete, BaseSO operation)
         {
-            operation = new DeleteClientSO(clientToDelete);
-            operation.ExecuteOperation();
+            if (operation.Result == null)
+                throw new Exception("Ne postoji trener u bazi!");
+
+            //operation = new DeleteClientSO(clientToDelete);
+            this.operation = operation;
+            this.operation.ExecuteOperation();
+            return (Client)operation.Result;
         }
 
-        internal void UpdateClient (Client clientToUpdate)
+        public bool UpdateClient (Client clientToUpdate, BaseSO operation)
         {
-            operation = new UpdateClientSO(clientToUpdate);
-            operation.ExecuteOperation();
+            //operation = new UpdateClientSO(clientToUpdate);
+            if (clientToUpdate.FirstName == null || clientToUpdate.FirstName.Length == 0 ||
+                clientToUpdate.LastName == null || clientToUpdate.LastName.Length == 0 ||
+                clientToUpdate.Weight == 0 || clientToUpdate.Height == 0 ||
+                clientToUpdate.Group == null
+                )
+            {
+                return false;
+            }
+            else
+            {
+                this.operation = operation;
+                this.operation.ExecuteOperation();
+                return true;
+            }
         }
 
-        internal void CreateClient(Client client)
+        public bool CreateClient(Client clientToUpdate, BaseSO operation)
         {
-            operation = new CreateClientSO(client);
-            operation.ExecuteOperation();
+            //operation = new CreateClientSO(client);
+            if (clientToUpdate.FirstName == null || clientToUpdate.FirstName.Length == 0 ||
+                clientToUpdate.LastName == null || clientToUpdate.LastName.Length == 0 ||
+                clientToUpdate.Weight == 0 || clientToUpdate.Height == 0 ||
+                clientToUpdate.Group == null
+                )
+            {
+                return false;
+            }
+            else
+            {
+                this.operation = operation;
+                this.operation.ExecuteOperation();
+                return true;
+            }
         }
 
-        internal void CreateAppointment(Appointment appointment, Group group)
+        public bool CreateAppointment(Appointment appointment, BaseSO operation)
         {
-            operation = new CreateAppointmentSO(appointment, group);
-            operation.ExecuteOperation();
+            //operation = new CreateAppointmentSO(appointment);
+            if (appointment.Time == null ||
+                appointment.NumberOfAppointments == 0 ||
+                appointment.Group == null
+                )
+            {
+                return false;
+            }
+            else
+            {
+                this.operation = operation;
+                this.operation.ExecuteOperation();
+                return true;
+            }
         }
 
-        public List<Appointment> GetAllAppointments()
+        public List<Appointment> GetAllAppointments(BaseSO operation)
         {
-            operation = new GetAllAppointmentsSO();
-            operation.ExecuteOperation();
+            //operation = new GetAllAppointmentsSO();
+            this.operation = operation;
+            this.operation.ExecuteOperation();
             List<Appointment> appointments = operation.ResultList.ConvertAll(x => (Appointment)x);
             return appointments;
         }
 
-        internal void DeleteAppointment(Appointment appointmentToDelete)
+        public Appointment DeleteAppointment(Appointment appointmentToDelete, BaseSO operation)
         {
-            operation = new DeleteAppointmentSO(appointmentToDelete);
-            operation.ExecuteOperation();
+            //operation = new DeleteAppointmentSO(appointmentToDelete);
+            if (operation.Result == null)
+                throw new Exception("Ne postoji termin u bazi!");
+
+            this.operation = operation;
+            this.operation.ExecuteOperation();
+            return (Appointment)operation.Result;
         }
 
-        internal void UpdateAppointment(Appointment appToUpdate, Group groupToUpdate)
+        public bool UpdateAppointment(Appointment appToUpdate, BaseSO operation)
         {
-            operation = new UpdateAppointmentSO(appToUpdate, groupToUpdate);
-            operation.ExecuteOperation();
+            //operation = new UpdateAppointmentSO(appToUpdate);
+            if (appToUpdate.Time == null ||
+                appToUpdate.NumberOfAppointments == 0 ||
+                appToUpdate.Group == null
+               )
+            {
+                return false;
+            }
+            else
+            {
+                this.operation = operation;
+                this.operation.ExecuteOperation();
+                return true;
+            }
         }
 
-        public List<Attendance> GetAllAttendances()
+        public List<Attendance> GetAllAttendances(BaseSO operation)
         {
-            operation = new GetAllAttendanceSO();
-            operation.ExecuteOperation();
+            //operation = new GetAllAttendanceSO();
+            this.operation = operation;
+            this.operation.ExecuteOperation();
             List<Attendance> attendances = operation.ResultList.ConvertAll(x => (Attendance)x);
             return attendances;
         }
 
-        internal void CreateAttendance(Attendance attendance)
+        public void CreateGroup(Group group, BaseSO operation)
         {
-            operation = new CreateAttendanceSO(attendance);
-            operation.ExecuteOperation();
+            //operation = new CreateGroupSO(group);
+            this.operation = operation;
+            this.operation.ExecuteOperation();
         }
 
+        public void CreateAttendances(List<Attendance> attendances, BaseSO operation)
+        {
+            //operation = new CreateAttendancesSO(attendances);
+            this.operation = operation;
+            this.operation.ExecuteOperation();
+        }
+
+        public void DeleteAttendance(Attendance attendanceToDelete, BaseSO operation)
+        {
+            //operation = new DeleteAttendanceSO(attendanceToDelete);
+            this.operation = operation;
+            this.operation.ExecuteOperation();
+        }
 
     }
 }

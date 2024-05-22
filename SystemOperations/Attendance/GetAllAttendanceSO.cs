@@ -12,7 +12,6 @@ namespace SystemOperations.Attendance
     {
         public GetAllAttendanceSO()
         {
-            this.repository = new AttendanceRepository();
         }
         protected override void ExecuteConcreteOperation()
         {

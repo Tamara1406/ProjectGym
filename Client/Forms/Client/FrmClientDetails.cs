@@ -43,11 +43,24 @@ namespace Client
 
         private void btnDeleteClient_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show($"Obriši klijenta {client.Name}?", "CONFIRMATION", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            
-            ClientController.Instance.DeleteClient(client);
-            this.Close();
-            MessageBox.Show("Klijent je obrisan!");
+            try
+            {
+                DialogResult result = MessageBox.Show($"Obriši klijenta {client.Name}?", "CONFIRMATION", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                List<Attendance> attendances = ClientController.Instance.GetAllAttendances();
+                foreach (Attendance att in attendances)
+                {
+                    if (att.Client.ClientID == client.ClientID)
+                        ClientController.Instance.DeleteAttendance(att);
+                }
+                ClientController.Instance.DeleteClient(client);
+                this.Close();
+                MessageBox.Show("Klijent je obrisan!");
+            }
+            catch
+            {
+                MessageBox.Show("Sistem ne moze da obrise klijenta!!");
+
+            }
             
         }
 

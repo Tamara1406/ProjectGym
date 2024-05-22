@@ -13,12 +13,11 @@ namespace SystemOperations.CoachSO
         Coach coach;
         public CreateCoachSO(Coach coach)
         {
-            repository = new CoachRepository();
             this.coach = coach;
         }
         protected override void ExecuteConcreteOperation()
         {
-            repository.Create(coach);
+            repository.Add(coach);
         }
     }
 }

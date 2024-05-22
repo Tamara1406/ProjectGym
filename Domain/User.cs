@@ -1,5 +1,4 @@
-﻿using DBBroker;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data.SqlClient;
@@ -36,7 +35,7 @@ namespace Domain
 
         public override string JoinKeys()
         {
-            throw new NotImplementedException();
+            return "";
         }
 
         public override List<AbsEntity> ReaderRead(SqlDataReader reader)
@@ -57,7 +56,7 @@ namespace Domain
                 users.Add(user);
             }
 
-            BrokerController.Instance.CloseConnection();
+            //BrokerController.Instance.CloseConnection();
 
             return users;
         }
@@ -80,6 +79,11 @@ namespace Domain
 
             return $" Username = '{user.Username}', Password = '{user.Password}', Email = '{user.Email}', Firstname = '{user.FirstName}', Lastname = '{user.LastName}' ";
 
+        }
+
+        public override string GetKey()
+        {
+            return UserId + "";
         }
     }
 }

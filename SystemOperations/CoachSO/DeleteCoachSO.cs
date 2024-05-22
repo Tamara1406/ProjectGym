@@ -14,11 +14,10 @@ namespace SystemOperations.CoachSO
         public DeleteCoachSO(Coach coach)
         {
             this.coach = coach;
-            repository = new CoachRepository();
         }
         protected override void ExecuteConcreteOperation()
         {
-            repository.Delete(coach, coach.CoachID);
+            Result = repository.Delete(coach, coach.CoachID);
         }
     }
 }

@@ -14,12 +14,11 @@ namespace SystemOperations.UserSO
         public GetUserByUsernameSO(User user)
         {
             this.user = user;
-            repository = new UserRepository();
         }
 
         protected override void ExecuteConcreteOperation()
         {
-            Result = repository.Load(user, user.UserId);
+            Result = repository.Get(user, user.UserId);
         }
     }
 }

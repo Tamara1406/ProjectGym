@@ -13,7 +13,6 @@ namespace SystemOperations.CoachSO
     {
         public GetAllCoachesSO()
         {
-            this.repository = new CoachRepository();
         }
         protected override void ExecuteConcreteOperation()
         {

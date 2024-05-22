@@ -43,10 +43,10 @@ namespace Client.Forms.Coach
             try
             {
                 DialogResult result = MessageBox.Show($"Obriši trenera {coach.Name}?", "CONFIRMATION", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                List<Group> groups = ClientController.Instance.GetAllGroups();
+                List<Domain.Group> groups = ClientController.Instance.GetAllGroups();
                 if (result == DialogResult.Yes)
                 {
-                    foreach (Group group in groups)
+                    foreach (Domain.Group group in groups)
                     {
                         if (group.Coach.CoachID == coach.CoachID)
                         {

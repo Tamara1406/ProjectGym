@@ -14,7 +14,6 @@ namespace SystemOperations.ClientSO
         public DeleteClientSO(Client client)
         {
             this.client = client;
-            repository = new ClientRepository();
         }
         protected override void ExecuteConcreteOperation()
         {

@@ -1,5 +1,6 @@
 ﻿using Client.Forms.Attendance;
 using Client.Forms.Coach;
+using Client.Forms.Group;
 using Client.Forms.Term;
 using Domain;
 using System;
@@ -22,9 +23,8 @@ namespace Client.Forms
         UcGetAllClients ucGetAllClients;
         UcAddClient ucAddClient;
         UcAddAppointment ucAddAppointment;
-        UcGetAllAppointment ucGetAllAppointment;
-        UcGetAllAttendance ucGetAllAttendance;
-        UcAddAttendance ucAddAttendance;
+        UcAddGroup ucAddGroup;
+        FrmAddAttendances frmAddAttendances;
         public FrmMain(User user)
         {
             InitializeComponent();
@@ -68,13 +68,19 @@ namespace Client.Forms
             pnlMain.Controls.Clear();
             pnlMain.Controls.Add(ucAddAppointment);
         }
+        
 
-        private void tsmiGetAllAppointment_Click(object sender, EventArgs e)
+        private void tsmiAddGroup_Click(object sender, EventArgs e)
         {
-            ucGetAllAppointment = new UcGetAllAppointment();
+            ucAddGroup = new UcAddGroup();
             pnlMain.Controls.Clear();
-            pnlMain.Controls.Add(ucGetAllAppointment);
+            pnlMain.Controls.Add(ucAddGroup);
         }
 
+        private void čekiranjeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddAttendances = new FrmAddAttendances();
+            frmAddAttendances.ShowDialog();
+        }
     }
 }

@@ -24,6 +24,11 @@ namespace Domain
 
         public override string CheckId(int key)
         {
+            return $" Attendance.Client = {key} ";
+        }
+
+        public override string GetKey()
+        {
             throw new NotImplementedException();
         }
 
@@ -66,9 +71,9 @@ namespace Domain
                 Appointment appointment = new Appointment
                 {
                     AppointmentID = (int)reader[19],
-                    Time = (int)reader[20],
-                    NumberOfAppointments = (int)reader[21],
-                    Group = group2
+                    NumberOfAppointments = (int)reader[20],
+                    Group = group2,
+                    Time = (DateTime)reader[22],
                 };
 
                 Education education = new Education
@@ -133,5 +138,7 @@ namespace Domain
         {
             throw new NotImplementedException();
         }
+
+        
     }
 }

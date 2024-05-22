@@ -9,6 +9,13 @@ using System.Runtime.Remoting.Contexts;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
+using SystemOperations.AppointmentSO;
+using SystemOperations.Attendance;
+using SystemOperations.ClientSO;
+using SystemOperations.CoachSO;
+using SystemOperations.EducationSO;
+using SystemOperations.GroupSO;
+using SystemOperations.UserSO;
 
 namespace Server
 {
@@ -47,22 +54,23 @@ namespace Server
                                 response.Operation = Operation.AlreadyLogged;
                                 formatter.Serialize(stream, response);
                             }
-                            else if (ServerController.Instance.LoginCheck(user))
+                            else if(ServerController.Instance.Login(user, new GetAllUsersSO()))
                             {
+                                
                                 response.Operation = Operation.LoginOk;
                                 formatter.Serialize(stream, response);
                             }
                             else
                                 formatter.Serialize(stream, response);
-
                             break;
 
                         case Operation.RegisterUser:
 
                             User newUser = (User)request.Item;
 
-                            ServerController.Instance.RegisterUSer(newUser);
-                            response.Operation = Operation.RegisterOk;
+                            if(ServerController.Instance.RegisterUser(newUser, new CreateAccountSO(newUser)))
+                                response.Operation = Operation.RegisterOk;
+                            else response.Operation = Operation.RegisterNotOk;
 
                             formatter.Serialize(stream, response);
 
@@ -72,7 +80,7 @@ namespace Server
 
                             User userToFind = (User)request.Item;
 
-                            User userFound = ServerController.Instance.GetUserByUsername(userToFind);
+                            User userFound = ServerController.Instance.GetUserByUsername(userToFind, new GetUserByUsernameSO(userToFind));
 
                             response.Item = userFound;
 
@@ -92,9 +100,9 @@ namespace Server
                             }
                             else
                             {
-                                ServerController.Instance.UpdateUser(userToUpdate);
-
-                                response.Operation = Operation.UserUpdateOk;
+                                if (ServerController.Instance.UpdateUser(userToUpdate, new UpdateAccountSO(userToUpdate)))
+                                    response.Operation = Operation.UserUpdateOk;
+                                else response.Operation = Operation.UserUpdateNotOk;
 
                                 formatter.Serialize(stream, response);
                             }
@@ -103,7 +111,7 @@ namespace Server
 
                         case Operation.GetAllCoaches:
 
-                            List<Coach> coaches = ServerController.Instance.GetAllCoaches();
+                            List<Coach> coaches = ServerController.Instance.GetAllCoaches(new GetAllCoachesSO());
 
                             response.ItemList = coaches.ConvertAll(x => (object)x);
 
@@ -113,7 +121,7 @@ namespace Server
 
                         case Operation.GetAllEducations:
 
-                            List<Education> educations = ServerController.Instance.GetAllEducations();
+                            List<Education> educations = ServerController.Instance.GetAllEducations(new GetAllEducationsSO());
 
                             response.ItemList = educations.ConvertAll(x => (object)x);
                             formatter.Serialize(stream, response);
@@ -124,7 +132,7 @@ namespace Server
 
                             Coach resToDelete = (Coach)request.Item;
 
-                            ServerController.Instance.DeleteCoach(resToDelete);
+                            ServerController.Instance.DeleteCoach(resToDelete, new DeleteCoachSO(resToDelete));
 
                             response.Operation = Operation.UpdateCoachOk;
 
@@ -134,7 +142,7 @@ namespace Server
 
                         case Operation.GetAllGroups:
 
-                            List<Group> groups = ServerController.Instance.GetAllGroups();
+                            List<Group> groups = ServerController.Instance.GetAllGroups(new GetAllGroupsSO());
 
                             response.ItemList = groups.ConvertAll(x => (object)x);
 
@@ -146,7 +154,7 @@ namespace Server
 
                             Coach resToUpdate = (Coach)request.Item;
 
-                            ServerController.Instance.UpdateCoach(resToUpdate);
+                            ServerController.Instance.UpdateCoach(resToUpdate, new UpdateCoachSO(resToUpdate));
 
                             response.Operation = Operation.UpdateCoachOk;
 
@@ -158,7 +166,7 @@ namespace Server
 
                             Coach coach = (Coach)request.Item;
 
-                            ServerController.Instance.CreateCoach(coach);
+                            ServerController.Instance.CreateCoach(coach, new CreateCoachSO(coach));
                             response.Operation = Operation.AddCoachOk;
 
                             formatter.Serialize(stream, response);
@@ -167,7 +175,7 @@ namespace Server
 
                         case Operation.GetAllClients:
 
-                            List<Client> clients = ServerController.Instance.GetAllClients();
+                            List<Client> clients = ServerController.Instance.GetAllClients(new GetAllClientsSO());
 
                             response.ItemList = clients.ConvertAll(x => (object)x);
 
@@ -179,7 +187,7 @@ namespace Server
 
                             Client clientToDelete = (Client)request.Item;
 
-                            ServerController.Instance.DeleteClient(clientToDelete);
+                            ServerController.Instance.DeleteClient(clientToDelete, new DeleteClientSO(clientToDelete));
 
                             response.Operation = Operation.UpdateClientOk;
 
@@ -191,7 +199,7 @@ namespace Server
 
                             Client clientToUpdate = (Client)request.Item;
 
-                            ServerController.Instance.UpdateClient(clientToUpdate);
+                            ServerController.Instance.UpdateClient(clientToUpdate, new UpdateClientSO(clientToUpdate));
 
                             response.Operation = Operation.UpdateClientOk;
 
@@ -203,7 +211,7 @@ namespace Server
 
                             Client client = (Client)request.Item;
 
-                            ServerController.Instance.CreateClient(client);
+                            ServerController.Instance.CreateClient(client, new CreateClientSO(client));
                             response.Operation = Operation.AddClientOk;
 
                             formatter.Serialize(stream, response);
@@ -212,10 +220,9 @@ namespace Server
 
                         case Operation.AddAppointment:
 
-                            Appointment appointment = (Appointment)request.ItemList[0];
-                            Group group = (Group)request.ItemList[1];
+                            Appointment appointment = (Appointment)request.Item;
 
-                            ServerController.Instance.CreateAppointment(appointment, group);
+                            ServerController.Instance.CreateAppointment(appointment, new CreateAppointmentSO(appointment));
                             response.Operation = Operation.AddAppointmentOk;
 
                             formatter.Serialize(stream, response);
@@ -224,7 +231,7 @@ namespace Server
 
                         case Operation.GetAllAppointments:
 
-                            List<Appointment> appointments = ServerController.Instance.GetAllAppointments();
+                            List<Appointment> appointments = ServerController.Instance.GetAllAppointments(new GetAllAppointmentsSO());
 
                             response.ItemList = appointments.ConvertAll(x => (object)x);
                             formatter.Serialize(stream, response);
@@ -235,7 +242,7 @@ namespace Server
 
                             Appointment appToDelete = (Appointment)request.Item;
 
-                            ServerController.Instance.DeleteAppointment(appToDelete);
+                            ServerController.Instance.DeleteAppointment(appToDelete, new DeleteAppointmentSO(appToDelete));
 
                             response.Operation = Operation.UpdateAppointmentOk;
 
@@ -246,9 +253,8 @@ namespace Server
                         case Operation.UpdateAppointment:
 
                             Appointment appToUpdate = (Appointment)request.ItemList[0];
-                            Group groupToUpdate = (Group)request.ItemList[1];
 
-                            ServerController.Instance.UpdateAppointment(appToUpdate, groupToUpdate);
+                            ServerController.Instance.UpdateAppointment(appToUpdate, new UpdateAppointmentSO(appToUpdate));
 
                             response.Operation = Operation.UpdateAppointmentOk;
 
@@ -258,7 +264,7 @@ namespace Server
 
                         case Operation.GetAllAttendances:
 
-                            List<Attendance> attendances = ServerController.Instance.GetAllAttendances();
+                            List<Attendance> attendances = ServerController.Instance.GetAllAttendances(new GetAllAttendanceSO());
 
                             response.ItemList = attendances.ConvertAll(x => (object)x);
 
@@ -266,16 +272,42 @@ namespace Server
 
                             break;
 
-                        case Operation.AddAttendance:
+                        case Operation.AddGroup:
 
-                            Attendance attendance = (Attendance)request.Item;
+                            Group group = (Group)request.Item;
 
-                            ServerController.Instance.CreateAttendance(attendance);
-                            response.Operation = Operation.AddAttendanceOk;
+                            ServerController.Instance.CreateGroup(group, new CreateGroupSO(group));
+                            response.Operation = Operation.AddGroupOk;
 
                             formatter.Serialize(stream, response);
 
                             break;
+
+                        case Operation.AddAttendances:
+
+                            List<Attendance> listAttendances = new List<Attendance>();
+                            foreach(Attendance item in request.ItemList)
+                                listAttendances.Add(item);
+
+                            ServerController.Instance.CreateAttendances(listAttendances, new CreateAttendancesSO(listAttendances));
+                            response.Operation = Operation.AddAttendancesOk;
+
+                            formatter.Serialize(stream, response);
+
+                            break;
+
+                        case Operation.DeleteAttendance:
+
+                            Attendance attToDelete = (Attendance)request.Item;
+
+                            ServerController.Instance.DeleteAttendance(attToDelete, new DeleteAttendanceSO(attToDelete));
+
+                            response.Operation = Operation.UpdateAttendanceOk;
+
+                            formatter.Serialize(stream, response);
+
+                            break;
+
                     }
                 }
             }

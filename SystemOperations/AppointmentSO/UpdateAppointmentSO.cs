@@ -11,17 +11,14 @@ namespace SystemOperations.AppointmentSO
     public class UpdateAppointmentSO : BaseSO
     {
         Appointment appointment;
-        Group group;
-        public UpdateAppointmentSO(Appointment appointment, Group group)
+        public UpdateAppointmentSO(Appointment appointment)
         {
             this.appointment = appointment;
-            repository = new AppointmentRepository();
-            this.group = group;
         }
 
         protected override void ExecuteConcreteOperation()
         {
-            repository.UpdateComplex(appointment, appointment.AppointmentID, group, group.GroupID);
+            repository.Update(appointment, appointment.AppointmentID);
         }
     }
 }

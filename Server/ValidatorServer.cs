@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SystemOperations.UserSO;
 
 namespace Server
 {
@@ -24,9 +25,9 @@ namespace Server
             return true;
         }
 
-        internal static bool CheckUniqueData(User user)
+        public static bool CheckUniqueData(User user)
         {
-            List<User> users = ServerController.Instance.GetAllUsers();
+            List<User> users = ServerController.Instance.GetAllUsers(new GetAllUsersSO());
 
             foreach (User user1 in users)
             {
@@ -37,5 +38,6 @@ namespace Server
             }
             return true;
         }
+
     }
 }

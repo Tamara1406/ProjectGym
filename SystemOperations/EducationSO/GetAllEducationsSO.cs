@@ -12,7 +12,6 @@ namespace SystemOperations.EducationSO
     {
         public GetAllEducationsSO()
         {
-            this.repository = new EducationRepository();
         }
         protected override void ExecuteConcreteOperation()
         {

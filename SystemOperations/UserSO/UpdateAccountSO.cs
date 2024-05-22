@@ -14,7 +14,6 @@ namespace SystemOperations.UserSO
         public UpdateAccountSO(User user)
         {
             this.user = user;
-            repository = new UserRepository();
         }
         protected override void ExecuteConcreteOperation()
         {

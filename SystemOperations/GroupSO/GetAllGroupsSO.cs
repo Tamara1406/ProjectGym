@@ -12,7 +12,6 @@ namespace SystemOperations.GroupSO
     {
         public GetAllGroupsSO()
         {
-            this.repository = new GroupRepository();
         }
         protected override void ExecuteConcreteOperation()
         {

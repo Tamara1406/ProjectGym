@@ -13,12 +13,11 @@ namespace SystemOperations.GroupSO
         Group group;
         public CreateGroupSO(Group group)
         {
-            repository = new GroupRepository();
             this.group = group;
         }
         protected override void ExecuteConcreteOperation()
         {
-            repository.Create(group);
+            repository.Add(group);
         }
     }
 }

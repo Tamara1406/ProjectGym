@@ -1,5 +1,4 @@
 ﻿using Domain;
-using Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,17 +7,16 @@ using System.Threading.Tasks;
 
 namespace SystemOperations.Attendance
 {
-    public class CreateAttendanceSO : BaseSO
+    public class DeleteAttendanceSO : BaseSO
     {
         Domain.Attendance attendance;
-        public CreateAttendanceSO(Domain.Attendance attendance)
+        public DeleteAttendanceSO(Domain.Attendance attendance)
         {
-            repository = new AttendanceRepository();
             this.attendance = attendance;
         }
         protected override void ExecuteConcreteOperation()
         {
-            repository.Create(attendance);
+            repository.Delete(attendance, attendance.Client.ClientID);
         }
     }
 }

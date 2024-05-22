@@ -42,7 +42,7 @@ namespace Client.Forms
                 }
                 client.Height = Int32.Parse(txtHeight.Text);
                 client.Weight = Int32.Parse(txtWeight.Text);
-                client.Group = (Group)cmbGroup.SelectedItem;
+                client.Group = (Domain.Group)cmbGroup.SelectedItem;
 
                 if(cmbGroup.SelectedIndex == -1)
                 {

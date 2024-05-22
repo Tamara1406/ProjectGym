@@ -367,15 +367,13 @@ namespace Client
             return false;
         }
 
-        internal bool CreateAppointment(Appointment appointment, Group group)
+        internal bool CreateAppointment(Appointment appointment)
         {
-            List<object> items = new List<object>();
-            items.Add(appointment);
-            items.Add(group);
+            
             Package request = new Package
             {
                 Operation = Operation.AddAppointment,
-                ItemList = items
+                Item = appointment
         };
 
             Communication.SendRequest(request);
@@ -443,30 +441,6 @@ namespace Client
             Package response = Communication.RecieveResponse();
         }
 
-        internal bool UpdateAppointment(Appointment appointment)
-        {
-            List<object> items = new List<object>();
-            items.Add(appointment);
-            items.Add(appointment.Group);
-
-            Package package = new Package
-            {
-                Operation = Operation.UpdateAppointment,
-                ItemList = items
-            };
-
-            Communication.SendRequest(package);
-
-            Package response = Communication.RecieveResponse();
-
-            if (response.Operation == Operation.UpdateAppointmentOk)
-            {
-                return true;
-            }
-
-            return false;
-        }
-
         public List<Attendance> GetAllAttendances()
         {
             Package request = new Package
@@ -482,23 +456,61 @@ namespace Client
             return attendances;
         }
 
-        internal bool CreateAttendance(Attendance attendance)
+        internal bool CreateGroup(Group group)
         {
             Package request = new Package
             {
-                Operation = Operation.AddAttendance,
-                Item = attendance
+                Operation = Operation.AddGroup,
+                Item = group
             };
 
             Communication.SendRequest(request);
 
             Package response = Communication.RecieveResponse();
 
-            if (response.Operation == Operation.AddAttendanceOk)
+            if (response.Operation == Operation.AddGroupOk)
             {
                 return true;
             }
             return false;
+        }
+
+        internal bool CreateAttendances(List<Attendance> attendances)
+        {
+            List<object> list = new List<object>();
+            foreach (object attendance in attendances)
+            {
+                list.Add(attendance);
+            }
+            Package request = new Package
+            {
+                Operation = Operation.AddAttendances,
+                ItemList = list
+            };
+
+            Communication.SendRequest(request);
+
+            Package response = Communication.RecieveResponse();
+
+            if (response.Operation == Operation.AddAttendancesOk)
+            {
+                return true;
+            }
+            return false;
+        }
+
+
+        internal void DeleteAttendance(Attendance attendance)
+        {
+            Package request = new Package
+            {
+                Item = attendance,
+                Operation = Operation.DeleteAttendance
+            };
+
+            Communication.SendRequest(request);
+
+            Package response = Communication.RecieveResponse();
         }
 
 

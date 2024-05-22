@@ -19,6 +19,8 @@ namespace Client.Forms
             InitializeComponent();
             GetAllClients();
             FillComboBox();
+            btnDetailsClient.Visible = false;
+            dgvGetAllClients.Visible = false;
         }
 
         public void GetAllClients()
@@ -35,6 +37,8 @@ namespace Client.Forms
 
         private void btnSearchName_Click(object sender, EventArgs e)
         {
+            dgvGetAllClients.Visible = true;
+            btnDetailsClient.Visible = true;
             string searchStr = txtName.Text;
             dgvGetAllClients.DataSource = null;
             dgvGetAllClients.DataSource = ClientController.Instance.GetClientSearchedByName(searchStr);
@@ -53,7 +57,9 @@ namespace Client.Forms
         {
             try
             {
-                Group group = (Group)cmbGroup.SelectedItem;
+                dgvGetAllClients.Visible = true;
+                btnDetailsClient.Visible = true;
+                Domain.Group group = (Domain.Group)cmbGroup.SelectedItem;
                 cmbGroup.SelectedIndex = -1;
                 dgvGetAllClients.DataSource = null;
                 if(group != null)

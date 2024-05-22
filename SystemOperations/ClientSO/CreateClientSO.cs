@@ -13,12 +13,11 @@ namespace SystemOperations.ClientSO
         Client client;
         public CreateClientSO(Client client)
         {
-            repository = new ClientRepository();
             this.client = client;
         }
         protected override void ExecuteConcreteOperation()
         {
-            repository.Create(client);
+            repository.Add(client);
         }
     }
 }

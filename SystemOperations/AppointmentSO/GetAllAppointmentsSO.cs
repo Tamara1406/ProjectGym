@@ -12,7 +12,6 @@ namespace SystemOperations.AppointmentSO
     {
         public GetAllAppointmentsSO()
         {
-            this.repository = new AppointmentRepository();
         }
         protected override void ExecuteConcreteOperation()
         {

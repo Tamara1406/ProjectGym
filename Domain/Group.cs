@@ -92,5 +92,10 @@ namespace Domain
             return $" Coach = '{group.Coach.CoachID}', GroupName = '{group.GroupName}' ";
 
         }
+
+        public override string GetKey()
+        {
+            return GroupID + "";
+        }
     }
 }

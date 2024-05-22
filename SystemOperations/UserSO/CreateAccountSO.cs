@@ -13,12 +13,11 @@ namespace SystemOperations.UserSO
         User user;
         public CreateAccountSO(User user)
         {
-            repository = new UserRepository();
             this.user = user;
         }
         protected override void ExecuteConcreteOperation()
         {
-            repository.Create(user);
+            repository.Add(user);
         }
     }
 }

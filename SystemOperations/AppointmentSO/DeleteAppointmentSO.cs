@@ -14,7 +14,6 @@ namespace SystemOperations.AppointmentSO
         public DeleteAppointmentSO(Appointment appointment)
         {
             this.appointment = appointment;
-            repository = new AppointmentRepository();
         }
         protected override void ExecuteConcreteOperation()
         {

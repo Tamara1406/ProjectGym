@@ -15,7 +15,6 @@ namespace SystemOperations.CoachSO
         public UpdateCoachSO(Coach coach)
         {
             this.coach = coach;
-            repository = new CoachRepository();
         }
 
         protected override void ExecuteConcreteOperation()

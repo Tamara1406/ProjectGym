@@ -15,7 +15,7 @@ namespace Domain
     {
         [Browsable(false)]
         public int AppointmentID { get; set; }
-        public int Time { get; set; }
+        public DateTime Time { get; set; }
         public int NumberOfAppointments { get; set; }
         public Group Group { get; set; }
         public override string ToString()
@@ -74,9 +74,9 @@ namespace Domain
                 Appointment appointment = new Appointment
                 {
                     AppointmentID = (int)reader[0],
-                    Time = (int)reader[1],
-                    NumberOfAppointments = (int)reader[2],
+                    NumberOfAppointments = (int)reader[1],
                     Group = group,
+                    Time = (DateTime)reader[3],
                 };
 
                 appointments.Add(appointment);
@@ -94,7 +94,7 @@ namespace Domain
         {
             Appointment appointment = (Appointment)entity;
 
-            return $" '{appointment.Time}', '{appointment.NumberOfAppointments}' ";
+            return $" '{appointment.NumberOfAppointments}', '{appointment.Group.GroupID}', '{appointment.Time.ToString("yyyy-MM-dd")}' ";
 
         }
 
@@ -103,6 +103,11 @@ namespace Domain
             Appointment appointment = (Appointment)entity;
             return $" [Time] = '{appointment.Time}', NumberOfAppointments = '{appointment.NumberOfAppointments}', [Group] = '{appointment.Group.GroupID}' ";
 
+        }
+
+        public override string GetKey()
+        {
+            return AppointmentID + "";
         }
     }
 }

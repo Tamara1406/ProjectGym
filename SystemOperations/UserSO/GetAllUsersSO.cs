@@ -12,7 +12,6 @@ namespace SystemOperations.UserSO
     {
         public GetAllUsersSO()
         {
-            this.repository = new UserRepository();
         }
         protected override void ExecuteConcreteOperation()
         {

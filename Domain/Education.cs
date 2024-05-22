@@ -68,5 +68,10 @@ namespace Domain
         {
             throw new NotImplementedException();
         }
+
+        public override string GetKey()
+        {
+            return EducationID + "";
+        }
     }
 }

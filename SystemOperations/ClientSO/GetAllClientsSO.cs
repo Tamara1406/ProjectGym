@@ -12,7 +12,6 @@ namespace SystemOperations.ClientSO
     {
         public GetAllClientsSO()
         {
-            this.repository = new ClientRepository();
         }
         protected override void ExecuteConcreteOperation()
         {
