@@ -303,25 +303,49 @@ namespace Server
             return attendances;
         }
 
-        public void CreateGroup(Group group, BaseSO operation)
+        public bool CreateGroup(Group group, BaseSO operation)
         {
             //operation = new CreateGroupSO(group);
-            this.operation = operation;
-            this.operation.ExecuteOperation();
+            if (group.GroupName == null || group.GroupName.Length == 0 ||
+                group.Coach == null
+                )
+            {
+                return false;
+            }
+            else
+            {
+                this.operation = operation;
+                this.operation.ExecuteOperation();
+                return true;
+            }
         }
 
-        public void CreateAttendances(List<Attendance> attendances, BaseSO operation)
+        public bool CreateAttendances(List<Attendance> attendances, BaseSO operation)
         {
             //operation = new CreateAttendancesSO(attendances);
+            foreach(Attendance attendance in attendances)
+            {
+                if (attendance.Client == null ||
+                attendance.Appointment == null
+                )
+                {
+                    return false;
+                }
+            }
             this.operation = operation;
             this.operation.ExecuteOperation();
+            return true;
         }
 
-        public void DeleteAttendance(Attendance attendanceToDelete, BaseSO operation)
+        public Attendance DeleteAttendance(Attendance attendanceToDelete, BaseSO operation)
         {
             //operation = new DeleteAttendanceSO(attendanceToDelete);
+            if (operation.Result == null)
+                throw new Exception("Ne postoji prisustvo u bazi!");
+
             this.operation = operation;
             this.operation.ExecuteOperation();
+            return (Attendance)operation.Result;
         }
 
     }

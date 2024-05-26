@@ -62,6 +62,31 @@ namespace GymTests.ServerControllerTests
             Assert.Empty(result);
         }
 
+        [Fact]
+        public void CreateGroup_ReturnSuccess()
+        {
+            // Arrange
+            var newGroup = new Group { GroupName = "Grupa1", Coach = new Coach() };
+
+            // Act
+            var result = serverController.CreateGroup(newGroup, so);
+
+            // Assert
+            Assert.True(result);
+        }
+
+        [Fact]
+        public void CreateGroup_With_InvalidData()
+        {
+            // Arrange
+            var invalidGroup = new Group { GroupName = "", Coach = null };
+
+            // Act
+            var result = serverController.CreateGroup(invalidGroup, so);
+
+            // Assert
+            Assert.False(result);
+        }
 
     }
 }
