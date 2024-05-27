@@ -9,7 +9,7 @@ namespace Client
 {
     public class ValidatorClient
     {
-        internal bool CheckUserData(User user)
+        public bool CheckUserData(User user)
         {
             if (!user.Email.Contains("@"))
             {

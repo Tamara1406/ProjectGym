@@ -10,6 +10,8 @@ namespace CommunicationClasses
     {
         LoginClient,
         LoginOk,
+        LoginNotOk,
+        AlreadyLogged,
         AddCoach,
         AddCoachOk,
         UpdateCoach,
@@ -49,7 +51,6 @@ namespace CommunicationClasses
         UserUpdateOk,
         DeleteUser,
         DeleteUserOk,
-        AlreadyLogged,
         RemoveUser,
         UserUpdateNotOk,
     }

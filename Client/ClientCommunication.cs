@@ -35,12 +35,12 @@ namespace Client
             socket = null;
         }
 
-        public void SendRequest(Package request)
+        public virtual void SendRequest(Package request)
         {
             formatter.Serialize(stream, request);
         }
 
-        public Package RecieveResponse()
+        public virtual Package RecieveResponse()
         {
             return (Package)formatter.Deserialize(stream);
         }

@@ -24,10 +24,10 @@ namespace GymTests.ServerControllerTests
         public void GetAllClients_ReturnSuccess()
         {
             // Arrange
-            var clients = new List<Client>
+            var clients = new List<Domain.Client>
             {
-                new Client { FirstName = "Pera", LastName = "Peric", Gender = Gender.Muski, Height = 185, Weight = 85, Group = new Group() },
-                new Client { FirstName = "Mila", LastName = "Milic", Gender = Gender.Zenski, Height = 175, Weight = 65, Group = new Group() }
+                new Domain.Client { FirstName = "Pera", LastName = "Peric", Gender = Gender.Muski, Height = 185, Weight = 85, Group = new Group() },
+                new Domain.Client { FirstName = "Mila", LastName = "Milic", Gender = Gender.Zenski, Height = 175, Weight = 65, Group = new Group() }
             };
             A.CallTo(() => so.ExecuteOperation()).Invokes(() =>
             {
@@ -67,7 +67,7 @@ namespace GymTests.ServerControllerTests
         public void DeleteClient_Success()
         {
             // Arrange
-            var fakeClientToDelete = new Client { FirstName = "Pera", LastName = "Peric", Gender = Gender.Muski, Height = 185, Weight = 85, Group = new Group() };
+            var fakeClientToDelete = new Domain.Client { FirstName = "Pera", LastName = "Peric", Gender = Gender.Muski, Height = 185, Weight = 85, Group = new Group() };
             A.CallTo(() => so.Result).Returns(fakeClientToDelete);
 
             // Act
@@ -85,7 +85,7 @@ namespace GymTests.ServerControllerTests
             // Arrange
             A.CallTo(() => so.Result).Returns(null);
 
-            var fakeClientToDelete = new Client { FirstName = "Pera", LastName = "Peric", Gender = Gender.Muski, Height = 185, Weight = 85, Group = new Group() };
+            var fakeClientToDelete = new Domain.Client { FirstName = "Pera", LastName = "Peric", Gender = Gender.Muski, Height = 185, Weight = 85, Group = new Group() };
 
             // Act & Assert
             Assert.Throws<Exception>(() => serverController.DeleteClient(fakeClientToDelete, so));
@@ -95,7 +95,7 @@ namespace GymTests.ServerControllerTests
         public void UpdateClient_ReturnSuccess()
         {
             // Arrange
-            var newData = new Client { FirstName = "Pera", LastName = "Peric", Gender = Gender.Muski, Height = 185, Weight = 85, Group = new Group() };
+            var newData = new Domain.Client { FirstName = "Pera", LastName = "Peric", Gender = Gender.Muski, Height = 185, Weight = 85, Group = new Group() };
 
             // Act
             var result = serverController.UpdateClient(newData, so);
@@ -108,7 +108,7 @@ namespace GymTests.ServerControllerTests
         public void UpdateClient_With_InvalidData()
         {
             // Arrange
-            var invalidClient = new Client { FirstName = null, LastName = "", Gender = Gender.Muski, Height = 0, Weight = 0, Group = null };
+            var invalidClient = new Domain.Client { FirstName = null, LastName = "", Gender = Gender.Muski, Height = 0, Weight = 0, Group = null };
 
             // Act
             var result = serverController.UpdateClient(invalidClient, so);
@@ -121,7 +121,7 @@ namespace GymTests.ServerControllerTests
         public void CreateClient_ReturnSuccess()
         {
             // Arrange
-            var newClient = new Client { FirstName = "Pera", LastName = "Peric", Gender = Gender.Muski, Height = 185, Weight = 85, Group = new Group() };
+            var newClient = new Domain.Client { FirstName = "Pera", LastName = "Peric", Gender = Gender.Muski, Height = 185, Weight = 85, Group = new Group() };
 
             // Act
             var result = serverController.CreateClient(newClient, so);
@@ -134,7 +134,7 @@ namespace GymTests.ServerControllerTests
         public void CreateClient_With_InvalidData()
         {
             // Arrange
-            var invalidClient = new Client { FirstName = null, LastName = "", Gender = Gender.Muski, Height = 0, Weight = 0, Group = null };
+            var invalidClient = new Domain.Client { FirstName = null, LastName = "", Gender = Gender.Muski, Height = 0, Weight = 0, Group = null };
 
             // Act
             var result = serverController.CreateClient(invalidClient, so);

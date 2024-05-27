@@ -51,7 +51,7 @@ namespace Client
             }
         }
 
-        internal User GetUserByUsername(User userToFind)
+        public User GetUserByUsername(User userToFind)
         {
             Package request = new Package
             {
@@ -66,7 +66,7 @@ namespace Client
             return (User)response.Item;
         }
 
-        internal bool CreateAccount(User user)
+        public bool CreateAccount(User user)
         {
             Package request = new Package
             {
@@ -85,7 +85,7 @@ namespace Client
             return false;
         }
 
-        internal bool SaveAccount(User user)
+        public bool SaveAccount(User user)
         {
             ValidatorClient validator = new ValidatorClient();
 

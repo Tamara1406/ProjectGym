@@ -26,8 +26,8 @@ namespace GymTests.ServerControllerTests
             // Arrange
             var attendances = new List<Attendance>
             {
-                new Attendance { Client = new Client(), Appointment = new Appointment(), IsAttend = true },
-                new Attendance { Client = new Client(), Appointment = new Appointment(), IsAttend = true }
+                new Attendance { Client = new Domain.Client(), Appointment = new Appointment(), IsAttend = true },
+                new Attendance { Client = new Domain.Client(), Appointment = new Appointment(), IsAttend = true }
             };
             A.CallTo(() => so.ExecuteOperation()).Invokes(() =>
             {
@@ -67,8 +67,8 @@ namespace GymTests.ServerControllerTests
         public void CreateAttendances_ReturnSuccess()
         {
             // Arrange
-            var newAttendances = new List<Attendance> {new Attendance { Client = new Client(), Appointment = new Appointment(), IsAttend = true },
-                                                       new Attendance { Client = new Client(), Appointment = new Appointment(), IsAttend = true } };
+            var newAttendances = new List<Attendance> {new Attendance { Client = new Domain.Client(), Appointment = new Appointment(), IsAttend = true },
+                                                       new Attendance { Client = new Domain.Client(), Appointment = new Appointment(), IsAttend = true } };
             // Act
             var result = serverController.CreateAttendances(newAttendances, so);
 
@@ -94,7 +94,7 @@ namespace GymTests.ServerControllerTests
         public void DeleteAttendance_Success()
         {
             // Arrange
-            var fakeAttendanceToDelete = new Attendance { Client = new Client(), Appointment = new Appointment(), IsAttend = true };
+            var fakeAttendanceToDelete = new Attendance { Client = new Domain.Client(), Appointment = new Appointment(), IsAttend = true };
             A.CallTo(() => so.Result).Returns(fakeAttendanceToDelete);
 
             // Act
@@ -112,7 +112,7 @@ namespace GymTests.ServerControllerTests
             // Arrange
             A.CallTo(() => so.Result).Returns(null);
 
-            var fakeAttendanceToDelete = new Attendance { Client = new Client(), Appointment = new Appointment(), IsAttend = true };
+            var fakeAttendanceToDelete = new Attendance { Client = new Domain.Client(), Appointment = new Appointment(), IsAttend = true };
 
             // Act & Assert
             Assert.Throws<Exception>(() => serverController.DeleteAttendance(fakeAttendanceToDelete, so));

@@ -57,10 +57,10 @@ namespace Server
                             else if(ServerController.Instance.Login(user, new GetAllUsersSO()))
                             {
                                 
-                                response.Operation = Operation.LoginOk;
                                 formatter.Serialize(stream, response);
                             }
                             else
+                                response.Operation = Operation.LoginNotOk;
                                 formatter.Serialize(stream, response);
                             break;
 
