@@ -18,6 +18,8 @@ namespace GymTests.ClientControllerTests
 
         private ClientCommunication fakeCommunication = A.Fake<ClientCommunication>();
 
+        //private ValidatorClient fakeValidator = A.Fake<ValidatorClient>();
+
         public UserTest()
         {
             clientController = new ClientController();
@@ -176,7 +178,62 @@ namespace GymTests.ClientControllerTests
             A.CallTo(() => fakeCommunication.SendRequest(A<Package>.That.Matches(p => p.Operation == Operation.RegisterUser && p.Item == user))).MustHaveHappenedOnceExactly();
         }
 
-        
+        //[Fact]
+        //public void SaveAccount_ReturnsTrue_WhenUserUpdateOk()
+        //{
+        //    // Arrange
+        //    var user = new User { Username = "testUser", Password = "testPass" };
+
+        //    var response = new Package
+        //    {
+        //        Operation = Operation.UserUpdateOk
+        //    };
+
+        //    A.CallTo(() => fakeCommunication.RecieveResponse()).Returns(response);
+        //    A.CallTo(() => fakeValidator.CheckUserData(user)).Returns(true);
+
+        //    // Act
+        //    var result = clientController.SaveAccount(user);
+
+        //    // Assert
+        //    Assert.True(result);
+
+        //    // Verify that SendRequest was called
+        //    A.CallTo(() => fakeCommunication.SendRequest(A<Package>.That.Matches(p => p.Operation == Operation.UpdateUser && p.Item == user)))
+        //        .MustHaveHappenedOnceExactly();
+
+        //    // Verify that CheckUserData was called
+        //    A.CallTo(() => fakeValidator.CheckUserData(user)).MustHaveHappenedOnceExactly();
+        //}
+
+        //[Fact]
+        //public void SaveAccount_ReturnsFalse_WhenUserUpdateNotOk()
+        //{
+        //    // Arrange
+        //    var user = new User { Username = "testUser", Password = "testPass" };
+        //    var response = new Package
+        //    {
+        //        Operation = Operation.UserUpdateNotOk
+        //    };
+
+        //    A.CallTo(() => fakeCommunication.RecieveResponse()).Returns(response);
+        //    A.CallTo(() => fakeValidator.CheckUserData(user)).Returns(true);
+
+        //    // Act
+        //    var result = clientController.SaveAccount(user);
+
+        //    // Assert
+        //    Assert.False(result);
+
+        //    // Verify that SendRequest was called
+        //    A.CallTo(() => fakeCommunication.SendRequest(A<Package>.That.Matches(p => p.Operation == Operation.UpdateUser && p.Item == user)))
+        //        .MustHaveHappenedOnceExactly();
+
+        //    // Verify that CheckUserData was called
+        //    A.CallTo(() => fakeValidator.CheckUserData(user)).MustHaveHappenedOnceExactly();
+        //}
 
     }
+
 }
+

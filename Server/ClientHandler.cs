@@ -154,9 +154,10 @@ namespace Server
 
                             Coach resToUpdate = (Coach)request.Item;
 
-                            ServerController.Instance.UpdateCoach(resToUpdate, new UpdateCoachSO(resToUpdate));
-
-                            response.Operation = Operation.UpdateCoachOk;
+                            if(ServerController.Instance.UpdateCoach(resToUpdate, new UpdateCoachSO(resToUpdate)))
+                                response.Operation = Operation.UpdateCoachOk;
+                            else
+                                response.Operation = Operation.UpdateCoachNotOk;
 
                             formatter.Serialize(stream, response);
 
@@ -166,8 +167,10 @@ namespace Server
 
                             Coach coach = (Coach)request.Item;
 
-                            ServerController.Instance.CreateCoach(coach, new CreateCoachSO(coach));
-                            response.Operation = Operation.AddCoachOk;
+                            if(ServerController.Instance.CreateCoach(coach, new CreateCoachSO(coach)))
+                                response.Operation = Operation.AddCoachOk;
+                            else
+                                response.Operation = Operation.AddCoachNotOk;
 
                             formatter.Serialize(stream, response);
 
@@ -199,9 +202,10 @@ namespace Server
 
                             Client clientToUpdate = (Client)request.Item;
 
-                            ServerController.Instance.UpdateClient(clientToUpdate, new UpdateClientSO(clientToUpdate));
-
-                            response.Operation = Operation.UpdateClientOk;
+                            if(ServerController.Instance.UpdateClient(clientToUpdate, new UpdateClientSO(clientToUpdate)))
+                                response.Operation = Operation.UpdateClientOk;
+                            else
+                                response.Operation = Operation.UpdateClientNotOk;
 
                             formatter.Serialize(stream, response);
 
@@ -211,8 +215,10 @@ namespace Server
 
                             Client client = (Client)request.Item;
 
-                            ServerController.Instance.CreateClient(client, new CreateClientSO(client));
-                            response.Operation = Operation.AddClientOk;
+                            if(ServerController.Instance.CreateClient(client, new CreateClientSO(client)))
+                                response.Operation = Operation.AddClientOk;
+                            else
+                                response.Operation = Operation.AddClientNotOk;
 
                             formatter.Serialize(stream, response);
 
@@ -276,8 +282,10 @@ namespace Server
 
                             Group group = (Group)request.Item;
 
-                            ServerController.Instance.CreateGroup(group, new CreateGroupSO(group));
-                            response.Operation = Operation.AddGroupOk;
+                            if(ServerController.Instance.CreateGroup(group, new CreateGroupSO(group)))
+                                response.Operation = Operation.AddGroupOk;
+                            else
+                                response.Operation = Operation.AddGroupNotOk;
 
                             formatter.Serialize(stream, response);
 

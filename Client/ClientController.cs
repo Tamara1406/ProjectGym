@@ -25,6 +25,8 @@ namespace Client
                 return instance;
             }
         }
+
+
         public int LoginClient(User user)
         {
             Package request = new Package
@@ -108,7 +110,7 @@ namespace Client
             return false;
         }
 
-        public List<Coach> GetAllCoaches()
+        public virtual List<Coach> GetAllCoaches()
         {
             Package request = new Package
             {
@@ -123,7 +125,7 @@ namespace Client
             return coaches;
         }
 
-        internal object GetCoachSearchedByName(string searchStr)
+        public List<Coach> GetCoachSearchedByName(string searchStr)
         {
             List<Coach> coaches = this.GetAllCoaches();
 
@@ -144,7 +146,7 @@ namespace Client
             return finalCoaches;
         }
 
-        internal List<Education> GetAllEducations()
+        public List<Education> GetAllEducations()
         {
             Package request = new Package
             {
@@ -160,7 +162,7 @@ namespace Client
             return educations;
         }
 
-        internal List<Coach> GetAllCoachByEducation(Education education)
+        public List<Coach> GetAllCoachByEducation(Education education)
         {
             Package request = new Package
             {
@@ -186,7 +188,7 @@ namespace Client
             return coachesByEducation;
         }
 
-        internal void DeleteCoach(Coach coach)
+        public Coach DeleteCoach(Coach coach)
         {
             Package request = new Package
             {
@@ -197,6 +199,7 @@ namespace Client
             Communication.SendRequest(request);
 
             Package response = Communication.RecieveResponse();
+            return (Coach)response.Item;
         }
 
         public List<Group> GetAllGroups()
@@ -214,7 +217,7 @@ namespace Client
             return group;
         }
 
-        internal bool UpdateCoach(Coach coach)
+        public bool UpdateCoach(Coach coach)
         {
             Package package = new Package
             {
@@ -234,7 +237,7 @@ namespace Client
             return false;
         }
 
-        internal bool CreateCoach(Coach coach)
+        public bool CreateCoach(Coach coach)
         {
             Package request = new Package
             {
@@ -253,7 +256,7 @@ namespace Client
             return false;
         }
 
-        public List<Domain.Client> GetAllClients()
+        public virtual List<Domain.Client> GetAllClients()
         {
             Package request = new Package
             {
@@ -268,7 +271,7 @@ namespace Client
             return clients;
         }
 
-        internal object GetClientSearchedByName(string searchStr)
+        public List<Domain.Client> GetClientSearchedByName(string searchStr)
         {
             List<Domain.Client> clients = this.GetAllClients();
 
@@ -289,7 +292,7 @@ namespace Client
             return finalClients;
         }
 
-        internal List<Domain.Client> GetAllClientsByGroup(Group group)
+        public List<Domain.Client> GetAllClientsByGroup(Group group)
         {
             Package request = new Package
             {
@@ -315,7 +318,7 @@ namespace Client
             return clientsByGroup;
         }
 
-        internal void DeleteClient(Domain.Client client)
+        public Domain.Client DeleteClient(Domain.Client client)
         {
             Package request = new Package
             {
@@ -326,9 +329,10 @@ namespace Client
             Communication.SendRequest(request);
 
             Package response = Communication.RecieveResponse();
+            return (Domain.Client)response.Item;
         }
 
-        internal bool UpdateClient(Domain.Client client)
+        public bool UpdateClient(Domain.Client client)
         {
             Package package = new Package
             {
@@ -348,7 +352,7 @@ namespace Client
             return false;
         }
 
-        internal bool CreateClient(Domain.Client client)
+        public bool CreateClient(Domain.Client client)
         {
             Package request = new Package
             {
@@ -456,7 +460,7 @@ namespace Client
             return attendances;
         }
 
-        internal bool CreateGroup(Group group)
+        public bool CreateGroup(Group group)
         {
             Package request = new Package
             {
