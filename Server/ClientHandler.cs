@@ -228,8 +228,10 @@ namespace Server
 
                             Appointment appointment = (Appointment)request.Item;
 
-                            ServerController.Instance.CreateAppointment(appointment, new CreateAppointmentSO(appointment));
+                            if(ServerController.Instance.CreateAppointment(appointment, new CreateAppointmentSO(appointment)))
                             response.Operation = Operation.AddAppointmentOk;
+                            else
+                            response.Operation = Operation.AddAppointmentNotOk;
 
                             formatter.Serialize(stream, response);
 
@@ -297,8 +299,10 @@ namespace Server
                             foreach(Attendance item in request.ItemList)
                                 listAttendances.Add(item);
 
-                            ServerController.Instance.CreateAttendances(listAttendances, new CreateAttendancesSO(listAttendances));
-                            response.Operation = Operation.AddAttendancesOk;
+                            if(ServerController.Instance.CreateAttendances(listAttendances, new CreateAttendancesSO(listAttendances)))
+                                response.Operation = Operation.AddAttendancesOk;
+                            else
+                                response.Operation = Operation.AddAttendancesNotOk;
 
                             formatter.Serialize(stream, response);
 

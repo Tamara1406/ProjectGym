@@ -157,7 +157,7 @@ namespace GymTests.ClientControllerTests
         }
 
         [Fact]
-        public void GetAllClientByEducation_ReturnsCorrectClients_WhenMatchExists()
+        public void GetAllClientByGroup_ReturnsCorrectClients_WhenMatchExists()
         {
             // Arrange
             var group = new Group { GroupID = 1 };
@@ -260,7 +260,6 @@ namespace GymTests.ClientControllerTests
             A.CallTo(() => fakeCommunication.RecieveResponse()).MustHaveHappened();
             Assert.Null(result);
         }
-
 
         [Fact]
         public void UpdateClient_SendsRequest_WithCorrectOperation()

@@ -371,7 +371,7 @@ namespace Client
             return false;
         }
 
-        internal bool CreateAppointment(Appointment appointment)
+        public bool CreateAppointment(Appointment appointment)
         {
             
             Package request = new Package
@@ -406,7 +406,7 @@ namespace Client
             return appointment;
         }
 
-        internal List<Appointment> GetAllAppointmentsByGroup(Group group)
+        public List<Appointment> GetAllAppointmentsByGroup(Group group)
         {
             Package request = new Package
             {
@@ -432,7 +432,7 @@ namespace Client
             return appointmentsByGroup;
         }
 
-        internal void DeleteAppointment(Appointment appointment)
+        public Appointment DeleteAppointment(Appointment appointment)
         {
             Package request = new Package
             {
@@ -443,6 +443,7 @@ namespace Client
             Communication.SendRequest(request);
 
             Package response = Communication.RecieveResponse();
+            return (Appointment)response.Item;
         }
 
         public List<Attendance> GetAllAttendances()
@@ -479,7 +480,7 @@ namespace Client
             return false;
         }
 
-        internal bool CreateAttendances(List<Attendance> attendances)
+        public bool CreateAttendances(List<Attendance> attendances)
         {
             List<object> list = new List<object>();
             foreach (object attendance in attendances)
@@ -503,8 +504,7 @@ namespace Client
             return false;
         }
 
-
-        internal void DeleteAttendance(Attendance attendance)
+        public Attendance DeleteAttendance(Attendance attendance)
         {
             Package request = new Package
             {
@@ -515,6 +515,7 @@ namespace Client
             Communication.SendRequest(request);
 
             Package response = Communication.RecieveResponse();
+            return (Attendance)response.Item;
         }
 
 
